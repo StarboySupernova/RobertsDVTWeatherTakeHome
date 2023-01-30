@@ -73,7 +73,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <vibrancyEffect>
-                                                                <blurEffect style="regular"/>
+                                                                <blurEffect style="systemMaterial"/>
                                                             </vibrancyEffect>
                                                         </visualEffectView>
                                                     </subviews>
@@ -124,6 +124,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Bob's Weather Central" id="cq6-KR-Row"/>
+                    <connections>
+                        <outlet property="blurView" destination="b0f-4N-fAM" id="AJ4-SY-wku"/>
+                        <outlet property="heroCardView" destination="7HT-K8-5fV" id="VjK-fm-4YY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -203,6 +207,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eTt-ZN-cK4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y5r-Dh-mHt">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" name="TabBarTint"/>
