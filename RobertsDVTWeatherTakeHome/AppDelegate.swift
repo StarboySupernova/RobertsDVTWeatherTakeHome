@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  RobertsDVTWeatherTakeHome
 //
-//  Created by user226714 on 1/30/23.
+//  Created by Simbarashe Dombodzvuku on 1/30/23.
 //
 
 import UIKit
