@@ -13,6 +13,7 @@
 		C96D282D2988230F007CF170 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96D282B2988230F007CF170 /* Main.storyboard */; };
 		C96D282F29882310007CF170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96D282E29882310007CF170 /* Assets.xcassets */; };
 		C96D283229882310007CF170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96D283029882310007CF170 /* LaunchScreen.storyboard */; };
+		C9E238ED2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E238EC2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift */; };
 		C9FFEA7C298891A70000F659 /* CustomBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFEA78298891A70000F659 /* CustomBlurView.swift */; };
 		C9FFEA7D298891A70000F659 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFEA79298891A70000F659 /* CustomUIView.swift */; };
 		C9FFEA7E298891A70000F659 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFEA7A298891A70000F659 /* Font.swift */; };
@@ -28,6 +29,7 @@
 		C96D282E29882310007CF170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C96D283129882310007CF170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C96D283329882310007CF170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9E238EC2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9FFEA78298891A70000F659 /* CustomBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBlurView.swift; sourceTree = "<group>"; };
 		C9FFEA79298891A70000F659 /* CustomUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
 		C9FFEA7A298891A70000F659 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				C96D28272988230F007CF170 /* SceneDelegate.swift */,
 				C96D28292988230F007CF170 /* ViewController.swift */,
 				C96D282B2988230F007CF170 /* Main.storyboard */,
+				C9E238EC2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift */,
 				C96D282E29882310007CF170 /* Assets.xcassets */,
 				C96D283029882310007CF170 /* LaunchScreen.storyboard */,
 				C96D283329882310007CF170 /* Info.plist */,
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E238ED2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift in Sources */,
 				C96D282A2988230F007CF170 /* ViewController.swift in Sources */,
 				C9FFEA7D298891A70000F659 /* CustomUIView.swift in Sources */,
 				C9FFEA7E298891A70000F659 /* Font.swift in Sources */,
