@@ -38,10 +38,19 @@ class WeatherHeaderCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 30
         layer.cornerCurve = .continuous
         
+        //MARK: Gradient setup
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         gradient.frame = overlay.frame
         gradient.cornerCurve = .continuous
         gradient.cornerRadius = 30
+        
+        overlay.layer.insertSublayer(gradient, at: 0)
+        overlay.layer.cornerRadius = 30
+        overlay.layer.cornerCurve = .continuous
+    }
+    
+    override public func prepareForReuse() {
+        super.prepareForReuse()
     }
 }
