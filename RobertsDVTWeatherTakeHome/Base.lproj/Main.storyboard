@@ -199,10 +199,6 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </imageView>
-                                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vFb-Qj-WMz">
-                                                                        <rect key="frame" x="16" y="198.5" width="128" height="4"/>
-                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </progressView>
                                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Le-ow-m4J">
                                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="257"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hcm-7d-3vM">
@@ -248,14 +244,10 @@
                                                                     <constraint firstItem="1rQ-HL-7SQ" firstAttribute="leading" secondItem="R0s-a5-xpM" secondAttribute="leading" constant="16" id="7Te-g2-Lq9"/>
                                                                     <constraint firstItem="12r-HQ-XNd" firstAttribute="leading" secondItem="1rQ-HL-7SQ" secondAttribute="leading" id="Dga-wG-N3N"/>
                                                                     <constraint firstAttribute="trailing" secondItem="0uY-w8-sSL" secondAttribute="trailing" id="P1r-6t-ErX"/>
-                                                                    <constraint firstItem="vFb-Qj-WMz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R0s-a5-xpM" secondAttribute="leading" constant="16" id="Skb-Eu-993"/>
-                                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vFb-Qj-WMz" secondAttribute="trailing" constant="16" id="XgG-19-Nna"/>
                                                                     <constraint firstItem="0uY-w8-sSL" firstAttribute="top" secondItem="1rQ-HL-7SQ" secondAttribute="top" id="YT6-u8-vru"/>
                                                                     <constraint firstItem="1rQ-HL-7SQ" firstAttribute="top" secondItem="R0s-a5-xpM" secondAttribute="top" constant="16" id="aZ6-sx-zlM"/>
-                                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vFb-Qj-WMz" secondAttribute="top" constant="-8" id="cXG-m7-h0g"/>
                                                                     <constraint firstAttribute="bottom" secondItem="2Le-ow-m4J" secondAttribute="bottom" id="ds9-gZ-lPR"/>
                                                                     <constraint firstAttribute="trailing" secondItem="1rQ-HL-7SQ" secondAttribute="trailing" constant="16" id="eKd-ca-BP4"/>
-                                                                    <constraint firstItem="rVH-xg-dWD" firstAttribute="bottom" secondItem="vFb-Qj-WMz" secondAttribute="bottom" id="fax-if-ie7"/>
                                                                     <constraint firstItem="0uY-w8-sSL" firstAttribute="leading" secondItem="R0s-a5-xpM" secondAttribute="leading" id="hMB-wa-8oy"/>
                                                                     <constraint firstItem="l48-xB-USP" firstAttribute="top" secondItem="1rQ-HL-7SQ" secondAttribute="bottom" constant="16" id="j7t-zZ-yLl"/>
                                                                     <constraint firstItem="2Le-ow-m4J" firstAttribute="top" secondItem="R0s-a5-xpM" secondAttribute="top" id="jRu-ES-nf5"/>
@@ -296,7 +288,6 @@
                                                     <outlet property="descriptionLabel" destination="rVH-xg-dWD" id="f6V-Bj-uh8"/>
                                                     <outlet property="logo" destination="12r-HQ-XNd" id="gu5-6T-bxm"/>
                                                     <outlet property="overlay" destination="iCB-Fl-i9D" id="Q9A-Fh-siq"/>
-                                                    <outlet property="progressBar" destination="vFb-Qj-WMz" id="AaI-ky-LxA"/>
                                                     <outlet property="subtitleLabel" destination="dnz-9Z-VMv" id="hCe-sU-8eP"/>
                                                     <outlet property="titleLabel" destination="l48-xB-USP" id="sX9-3y-dZ5"/>
                                                 </connections>
@@ -333,12 +324,6 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a3-HB-vDq">
                                                             <rect key="frame" x="20" y="294" width="342" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-vc-szr">
-                                                            <rect key="frame" x="20" y="270" width="342" height="16"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -385,16 +370,13 @@
                                                         <constraint firstAttribute="trailing" secondItem="AxU-N0-sxe" secondAttribute="trailing" constant="20" id="96d-4Z-wdU"/>
                                                         <constraint firstAttribute="trailing" secondItem="vW1-lk-3Vn" secondAttribute="trailing" constant="20" id="9PL-M7-ghx"/>
                                                         <constraint firstItem="vW1-lk-3Vn" firstAttribute="leading" secondItem="HDq-UB-D6L" secondAttribute="leading" constant="20" id="Pid-ZZ-fW9"/>
-                                                        <constraint firstItem="0a3-HB-vDq" firstAttribute="top" secondItem="WXa-vc-szr" secondAttribute="bottom" constant="8" id="an5-J2-Mut"/>
                                                         <constraint firstItem="3bN-ej-4YG" firstAttribute="top" secondItem="HDq-UB-D6L" secondAttribute="top" id="dfr-g2-3Te"/>
                                                         <constraint firstItem="3bN-ej-4YG" firstAttribute="leading" secondItem="HDq-UB-D6L" secondAttribute="leading" id="eHa-Dv-iYR"/>
                                                         <constraint firstItem="0a3-HB-vDq" firstAttribute="leading" secondItem="HDq-UB-D6L" secondAttribute="leading" constant="20" id="eRL-T4-VRr"/>
                                                         <constraint firstAttribute="bottom" secondItem="0a3-HB-vDq" secondAttribute="bottom" constant="40" id="fr1-RJ-1on"/>
                                                         <constraint firstItem="0a3-HB-vDq" firstAttribute="top" secondItem="AxU-N0-sxe" secondAttribute="bottom" constant="8" id="q5v-de-Kpc"/>
-                                                        <constraint firstAttribute="trailing" secondItem="WXa-vc-szr" secondAttribute="trailing" constant="20" id="rv3-xi-Jbz"/>
                                                         <constraint firstAttribute="trailing" secondItem="0a3-HB-vDq" secondAttribute="trailing" constant="20" id="trS-Zm-VIV"/>
                                                         <constraint firstItem="vW1-lk-3Vn" firstAttribute="top" secondItem="HDq-UB-D6L" secondAttribute="top" constant="20" id="y6z-S8-bXj"/>
-                                                        <constraint firstItem="WXa-vc-szr" firstAttribute="leading" secondItem="HDq-UB-D6L" secondAttribute="leading" constant="20" id="zsh-F6-onV"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -478,22 +460,6 @@
             </objects>
             <point key="canvasLocation" x="949" y="-527"/>
         </scene>
-        <!--Weather-->
-        <scene sceneID="Met-UO-Qyt">
-            <objects>
-                <viewController title="Weather" id="Qaz-xB-W6T" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TtV-p4-xdN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="l7M-hW-CBq"/>
-                        <color key="backgroundColor" name="PrimaryBackground"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Weather" image="cloud.bolt.rain" catalog="system" id="yF8-1g-uQo"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eWx-PK-uxv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="948" y="183"/>
-        </scene>
         <!--Favourites-->
         <scene sceneID="mcC-DA-xoO">
             <objects>
@@ -541,14 +507,24 @@
                     </tabBar>
                     <connections>
                         <segue destination="hoA-PM-ezG" kind="relationship" relationship="viewControllers" id="czK-GG-Ik6"/>
-                        <segue destination="Qaz-xB-W6T" kind="relationship" relationship="viewControllers" id="zaK-lL-Ia8"/>
                         <segue destination="NvZ-qc-bMg" kind="relationship" relationship="viewControllers" id="EdC-Z5-RdC"/>
                         <segue destination="oXA-6h-TCr" kind="relationship" relationship="viewControllers" id="27p-ZG-ERA"/>
+                        <segue destination="kIg-k3-gNo" kind="relationship" relationship="viewControllers" id="AVN-SR-Mf8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Frr-JM-MnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="183"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="f7S-mD-6gT">
+            <objects>
+                <hostingController id="kIg-k3-gNo" customClass="WeatherViewHostingController" customModule="RobertsDVTWeatherTakeHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Weather" image="cloud.bolt.rain" catalog="system" id="x7f-kU-Hj0"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K0f-EZ-Ix6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="183"/>
         </scene>
     </scenes>
     <designables>
