@@ -32,8 +32,10 @@
 		C96D282D2988230F007CF170 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96D282B2988230F007CF170 /* Main.storyboard */; };
 		C96D282F29882310007CF170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96D282E29882310007CF170 /* Assets.xcassets */; };
 		C96D283229882310007CF170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96D283029882310007CF170 /* LaunchScreen.storyboard */; };
+		C97EBF78298DE9C900A29C86 /* ShowWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97EBF77298DE9C900A29C86 /* ShowWeatherViewController.swift */; };
 		C982E81B298CFF6E005FE554 /* WeatherSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982E81A298CFF6E005FE554 /* WeatherSuccessView.swift */; };
 		C989B149298ABBE80095ABD7 /* WeatherDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C989B148298ABBE80095ABD7 /* WeatherDisplayTableViewCell.swift */; };
+		C9A5393F2990316F001A1E39 /* WeatherSuccessHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A5393E2990316F001A1E39 /* WeatherSuccessHostingController.swift */; };
 		C9E238ED2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E238EC2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift */; };
 		C9FFEA7C298891A70000F659 /* CustomBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFEA78298891A70000F659 /* CustomBlurView.swift */; };
 		C9FFEA7D298891A70000F659 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFEA79298891A70000F659 /* CustomUIView.swift */; };
@@ -69,8 +71,10 @@
 		C96D282E29882310007CF170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C96D283129882310007CF170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C96D283329882310007CF170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C97EBF77298DE9C900A29C86 /* ShowWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWeatherViewController.swift; sourceTree = "<group>"; };
 		C982E81A298CFF6E005FE554 /* WeatherSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSuccessView.swift; sourceTree = "<group>"; };
 		C989B148298ABBE80095ABD7 /* WeatherDisplayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplayTableViewCell.swift; sourceTree = "<group>"; };
+		C9A5393E2990316F001A1E39 /* WeatherSuccessHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSuccessHostingController.swift; sourceTree = "<group>"; };
 		C9E238EC2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9FFEA78298891A70000F659 /* CustomBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBlurView.swift; sourceTree = "<group>"; };
 		C9FFEA79298891A70000F659 /* CustomUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 			children = (
 				C96D28292988230F007CF170 /* WeatherDisplayViewController.swift */,
 				C954024B298B842F00F9990F /* WeatherViewHostingController.swift */,
+				C97EBF77298DE9C900A29C86 /* ShowWeatherViewController.swift */,
+				C9A5393E2990316F001A1E39 /* WeatherSuccessHostingController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -292,10 +298,12 @@
 				C9E238ED2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift in Sources */,
 				C9540260298B990C00F9990F /* WeatherManager.swift in Sources */,
 				C989B149298ABBE80095ABD7 /* WeatherDisplayTableViewCell.swift in Sources */,
+				C97EBF78298DE9C900A29C86 /* ShowWeatherViewController.swift in Sources */,
 				C954026E298BAB9F00F9990F /* LabelStyle.swift in Sources */,
 				C9540269298BA47200F9990F /* LabelledDivider.swift in Sources */,
 				C9540257298B96A900F9990F /* MulticastDelegate.swift in Sources */,
 				C9540262298B996B00F9990F /* Network.swift in Sources */,
+				C9A5393F2990316F001A1E39 /* WeatherSuccessHostingController.swift in Sources */,
 				C9493DF1298BAFA4007D5D4E /* APIError.swift in Sources */,
 				C954025A298B96FB00F9990F /* ExtensionOnDate.swift in Sources */,
 				C96D282A2988230F007CF170 /* WeatherDisplayViewController.swift in Sources */,

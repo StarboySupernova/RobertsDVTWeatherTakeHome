@@ -19,43 +19,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOh-5Q-skT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="432" height="896"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background01" translatesAutoresizingMaskIntoConstraints="NO" id="hy2-9u-ekA">
-                                        <rect key="frame" x="0.0" y="-140" width="414" height="464.5"/>
+                                        <rect key="frame" x="0.0" y="-140" width="432" height="464.5"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7HT-K8-5fV" customClass="CustomView" customModule="RobertsDVTWeatherTakeHome" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="20" width="382" height="350"/>
+                                        <rect key="frame" x="16" y="20" width="400" height="350"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0f-4N-fAM" customClass="CustomBlurView" customModule="RobertsDVTWeatherTakeHome" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="350"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="350"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RVW-6O-jeO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="350"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="350"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Illustration 2" translatesAutoresizingMaskIntoConstraints="NO" id="xdX-VT-LgD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="217"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="217"/>
                                                         </imageView>
                                                         <visualEffectView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TXn-ap-6jk">
-                                                            <rect key="frame" x="0.0" y="217" width="382" height="133"/>
+                                                            <rect key="frame" x="0.0" y="217" width="400" height="133"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="3aT-Zy-280">
-                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="133"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="400" height="133"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Weather App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4C-5g-Zzu">
-                                                                        <rect key="frame" x="20" y="8" width="342" height="34"/>
+                                                                        <rect key="frame" x="20" y="8" width="360" height="34"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Weather at your fingertips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIn-vp-gsW">
-                                                                        <rect key="frame" x="20" y="50" width="342" height="16"/>
+                                                                        <rect key="frame" x="20" y="50" width="360" height="16"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="In your location and more!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLG-g8-e0y">
-                                                                        <rect key="frame" x="20" y="74" width="342" height="16"/>
+                                                                        <rect key="frame" x="20" y="74" width="360" height="16"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -137,7 +137,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MpS-aI-d5L">
-                                        <rect key="frame" x="16" y="442" width="382" height="257"/>
+                                        <rect key="frame" x="16" y="442" width="400" height="257"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="400" id="4XW-oO-Txn"/>
@@ -301,7 +301,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="350" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wV-lV-B1e">
-                                        <rect key="frame" x="16" y="771" width="382" height="400"/>
+                                        <rect key="frame" x="16" y="771" width="400" height="400"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="LfI-Yl-ufX"/>
@@ -309,26 +309,26 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherDisplayTableCell" rowHeight="350" id="y3x-wW-K5R" customClass="WeatherDisplayTableViewCell" customModule="RobertsDVTWeatherTakeHome" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="382" height="350"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="400" height="350"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y3x-wW-K5R" id="HDq-UB-D6L">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="350"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="350"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vW1-lk-3Vn">
-                                                            <rect key="frame" x="20" y="20" width="342" height="200"/>
+                                                            <rect key="frame" x="20" y="20" width="360" height="200"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="200" id="7F8-lH-KOm"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a3-HB-vDq">
-                                                            <rect key="frame" x="20" y="294" width="342" height="16"/>
+                                                            <rect key="frame" x="20" y="294" width="360" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxU-N0-sxe">
-                                                            <rect key="frame" x="20" y="252.5" width="342" height="33.5"/>
+                                                            <rect key="frame" x="20" y="252.5" width="360" height="33.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -358,7 +358,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background 3" translatesAutoresizingMaskIntoConstraints="NO" id="3bN-ej-4YG">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="350"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="350"/>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
@@ -509,22 +509,80 @@
                         <segue destination="hoA-PM-ezG" kind="relationship" relationship="viewControllers" id="czK-GG-Ik6"/>
                         <segue destination="NvZ-qc-bMg" kind="relationship" relationship="viewControllers" id="EdC-Z5-RdC"/>
                         <segue destination="oXA-6h-TCr" kind="relationship" relationship="viewControllers" id="27p-ZG-ERA"/>
-                        <segue destination="kIg-k3-gNo" kind="relationship" relationship="viewControllers" id="AVN-SR-Mf8"/>
+                        <segue destination="bvS-Zt-7mv" kind="relationship" relationship="viewControllers" id="yWm-PW-7Wt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Frr-JM-MnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="183"/>
         </scene>
+        <!--Show Weather View Controller-->
+        <scene sceneID="Ay8-6c-2aw">
+            <objects>
+                <viewController id="Zsf-t7-lPU" customClass="ShowWeatherViewController" customModule="RobertsDVTWeatherTakeHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vVG-yU-cHU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwQ-60-3ID">
+                                <rect key="frame" x="174" y="409" width="67" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="showWeather:" destination="Zsf-t7-lPU" eventType="touchUpInside" id="xJG-Pm-oV2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BmI-Jg-M4k"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tok-mG-2u2"/>
+                    <connections>
+                        <segue destination="kIg-k3-gNo" kind="presentation" identifier="presentWeather" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="VdG-et-FMV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96h-MG-nc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2067" y="183"/>
+        </scene>
+        <!--Weather Success Hosting Controller-->
+        <scene sceneID="u5a-nP-GMo">
+            <objects>
+                <hostingController id="bjf-eg-JFM" customClass="WeatherSuccessHostingController" customModule="RobertsDVTWeatherTakeHome" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Lu-9l-Ddg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2948" y="1142"/>
+        </scene>
         <!--Weather-->
         <scene sceneID="f7S-mD-6gT">
             <objects>
                 <hostingController id="kIg-k3-gNo" customClass="WeatherViewHostingController" customModule="RobertsDVTWeatherTakeHome" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Weather" image="cloud.bolt.rain" catalog="system" id="x7f-kU-Hj0"/>
+                    <navigationItem key="navigationItem" id="LDR-WN-9Yu"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0f-EZ-Ix6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="183"/>
+            <point key="canvasLocation" x="3812" y="183"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="wOd-Wz-nED">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bvS-Zt-7mv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="2ZN-UR-Lar"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jVp-Cr-aMW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zsf-t7-lPU" kind="relationship" relationship="rootViewController" id="oaP-Mo-2hb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKv-an-MR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1088" y="183"/>
         </scene>
     </scenes>
     <designables>
@@ -559,6 +617,9 @@
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

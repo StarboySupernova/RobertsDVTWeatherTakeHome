@@ -39,10 +39,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         locationManager.requestLocation()
         
         #warning("assign weatherData somewhere")
-        if let tabViewController = window?.rootViewController as? UITabBarController,
-           let weatherVC = tabViewController.viewControllers?[1] as? UIHostingController<WeatherSuccessView>
+        if let tabBarController = window?.rootViewController as? UITabBarController/*,
+           let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
+           let showWeatherVC = navigationController.viewControllers.first as? ShowWeatherViewController*/
         {
-            weatherVC.dependency = weatherData
+            print("successful casting")
+            //showWeatherVC.weatherData = weatherData
         }
         
         guard let _ = (scene as? UIWindowScene) else { return }
