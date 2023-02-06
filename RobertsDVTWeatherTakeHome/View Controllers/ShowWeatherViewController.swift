@@ -10,8 +10,7 @@ import SwiftUI
 
 class ShowWeatherViewController: UIViewController {
     var weatherData : WeatherData?
-    #warning("use intialize5r from yt vid")
-    
+    var city: City?
     
     
     override func viewDidLoad() {
@@ -19,18 +18,18 @@ class ShowWeatherViewController: UIViewController {
 
         //let button = UIButton(frame: CGRect(x: 0, y: 0, width: 220, height: 50))
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let weatherVC = segue.destination as? WeatherViewHostingController/*, let weather = sender as? WeatherData*/ {
-            let sender = sender as! WeatherData
-            weatherVC.dependency = sender
+            let sender = sender as! ShowWeatherViewController
+            weatherVC.dependency = WeatherManager.shared.loadForecastData(for: (city ?? weatherData?.cities.first)!)
             print("Preparation for weather vc successful")
         }
     }
     
     @IBAction func showWeather(_ sender: UIButton) {
-        #warning("try self as sender here")
-        performSegue(withIdentifier: "presentWeather", sender: weatherData)
+        performSegue(withIdentifier: "presentWeather", sender: self)
         /*let weatherData: WeatherData = WeatherData()
         let weatherView = WeatherSuccessView(weatherData: weatherData)
         let vc = UIHostingController(rootView: weatherView)
