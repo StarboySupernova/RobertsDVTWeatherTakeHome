@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C91DA3542991929A005DAD06 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91DA3532991929A005DAD06 /* LocationViewModel.swift */; };
+		C91DA357299194FC005DAD06 /* WeatherEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91DA356299194FC005DAD06 /* WeatherEndpoint.swift */; };
 		C9493DF1298BAFA4007D5D4E /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9493DF0298BAFA4007D5D4E /* APIError.swift */; };
 		C9493DF3298BB053007D5D4E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9493DF2298BB053007D5D4E /* ErrorView.swift */; };
 		C954024C298B842F00F9990F /* WeatherViewHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C954024B298B842F00F9990F /* WeatherViewHostingController.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		C91DA3532991929A005DAD06 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		C91DA356299194FC005DAD06 /* WeatherEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEndpoint.swift; sourceTree = "<group>"; };
 		C9493DF0298BAFA4007D5D4E /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		C9493DF2298BB053007D5D4E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C954024B298B842F00F9990F /* WeatherViewHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewHostingController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 				C91DA3532991929A005DAD06 /* LocationViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		C91DA355299194E3005DAD06 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				C91DA356299194FC005DAD06 /* WeatherEndpoint.swift */,
+			);
+			path = Endpoint;
 			sourceTree = "<group>";
 		};
 		C9493DEF298BAF94007D5D4E /* Error */ = {
@@ -204,6 +214,7 @@
 		C96D28242988230F007CF170 /* RobertsDVTWeatherTakeHome */ = {
 			isa = PBXGroup;
 			children = (
+				C91DA355299194E3005DAD06 /* Endpoint */,
 				C91DA35229919287005DAD06 /* View Model */,
 				C9493DEF298BAF94007D5D4E /* Error */,
 				C9540267298BA45700F9990F /* SwiftUI Views */,
@@ -313,6 +324,7 @@
 				C954026E298BAB9F00F9990F /* LabelStyle.swift in Sources */,
 				C9540269298BA47200F9990F /* LabelledDivider.swift in Sources */,
 				C9540257298B96A900F9990F /* MulticastDelegate.swift in Sources */,
+				C91DA357299194FC005DAD06 /* WeatherEndpoint.swift in Sources */,
 				C9540262298B996B00F9990F /* Network.swift in Sources */,
 				C9A5393F2990316F001A1E39 /* WeatherSuccessHostingController.swift in Sources */,
 				C9493DF1298BAFA4007D5D4E /* APIError.swift in Sources */,
