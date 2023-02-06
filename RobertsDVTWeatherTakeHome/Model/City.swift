@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct City:Codable{
+/*struct City:Codable{
     let id: Int
     let name: String
     let latitude: Double
@@ -21,5 +21,5 @@ struct City:Codable{
         self.longitude = longitude
         self.url = URL(string: "cityId://\(id)")
     }
-}
+}*/
 

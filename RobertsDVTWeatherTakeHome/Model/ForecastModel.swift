@@ -7,6 +7,7 @@
 
 import Foundation
 
+/*
 class ForecastModel {
     //MARK: - Variables and Properties
     var forecasts: [Forecast]
@@ -47,4 +48,4 @@ extension Forecast: Identifiable {
     var id: UUID {
         UUID()
     }
-}
+}*/

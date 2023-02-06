@@ -11,7 +11,7 @@ import Foundation
  This code defines several structs that conform to the Decodable protocol, which allows them to be used to initialize instances of their respective structs from JSON data. The structs are used to parse the JSON data returned from the API request made by the performWeatherRequest and performForecastRequest methods, to retrieve the weather and forecast information. The properties of these structs match the structure of the JSON data returned by the API, so that the data can be easily mapped to the structs' properties.
  */
 
-struct ForecastRequest: Decodable {
+/*struct ForecastRequest: Decodable {
     let list: [ForecastRequestSub]
 }
 
@@ -35,4 +35,4 @@ struct Main: Decodable{
 
 struct Weather:Decodable{
     let description: String
-}
+}*/
