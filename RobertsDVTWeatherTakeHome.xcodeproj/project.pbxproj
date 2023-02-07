@@ -42,6 +42,7 @@
 		C97EBF78298DE9C900A29C86 /* ShowWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97EBF77298DE9C900A29C86 /* ShowWeatherViewController.swift */; };
 		C982E81B298CFF6E005FE554 /* WeatherSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982E81A298CFF6E005FE554 /* WeatherSuccessView.swift */; };
 		C989B149298ABBE80095ABD7 /* WeatherDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C989B148298ABBE80095ABD7 /* WeatherDisplayTableViewCell.swift */; };
+		C99AA3422992696300560A2E /* General Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AA3412992696300560A2E /* General Helpers.swift */; };
 		C9A5393F2990316F001A1E39 /* WeatherSuccessHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A5393E2990316F001A1E39 /* WeatherSuccessHostingController.swift */; };
 		C9E238ED2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E238EC2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift */; };
 		C9FFEA7C298891A70000F659 /* CustomBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFEA78298891A70000F659 /* CustomBlurView.swift */; };
@@ -88,6 +89,7 @@
 		C97EBF77298DE9C900A29C86 /* ShowWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWeatherViewController.swift; sourceTree = "<group>"; };
 		C982E81A298CFF6E005FE554 /* WeatherSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSuccessView.swift; sourceTree = "<group>"; };
 		C989B148298ABBE80095ABD7 /* WeatherDisplayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplayTableViewCell.swift; sourceTree = "<group>"; };
+		C99AA3412992696300560A2E /* General Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "General Helpers.swift"; sourceTree = "<group>"; };
 		C9A5393E2990316F001A1E39 /* WeatherSuccessHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSuccessHostingController.swift; sourceTree = "<group>"; };
 		C9E238EC2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9FFEA78298891A70000F659 /* CustomBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBlurView.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				C9FFEA79298891A70000F659 /* CustomUIView.swift */,
 				C9FFEA7A298891A70000F659 /* Font.swift */,
 				C9FFEA7B298891A70000F659 /* CustomImageView.swift */,
+				C99AA3412992696300560A2E /* General Helpers.swift */,
 			);
 			path = "Helper Methods";
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				C9E238ED2989925C005C3BA4 /* WeatherHeaderCollectionViewCell.swift in Sources */,
 				C9540260298B990C00F9990F /* WeatherManager.swift in Sources */,
 				C989B149298ABBE80095ABD7 /* WeatherDisplayTableViewCell.swift in Sources */,
+				C99AA3422992696300560A2E /* General Helpers.swift in Sources */,
 				C97EBF78298DE9C900A29C86 /* ShowWeatherViewController.swift in Sources */,
 				C954026E298BAB9F00F9990F /* LabelStyle.swift in Sources */,
 				C9540269298BA47200F9990F /* LabelledDivider.swift in Sources */,
