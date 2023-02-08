@@ -11,41 +11,41 @@ import CoreLocation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    let DEFAULT_CITIES : [City] = [
+    /*let DEFAULT_CITIES : [City] = [
         City(id: 0, name: "My Location", latitude: 0, longitude: 0),
 //        City(id: 1,name: "Frankfurt", latitude: 50.11630522359943, longitude: 8.683179487766711),
 //        City(id: 2,name: "Paris", latitude: 48.85345575326961, longitude: 2.3500839018335804),
 //        City(id: 3,name: "Budapest", latitude: 47.51777591723693, longitude: 19.046526389932264),
         City(id: 4,name: "London", latitude: 51.496936024546535, longitude: -0.12289001864225133)
-    ]
+    ]*/
 
     var window: UIWindow?
-    let locationManager = CLLocationManager()
+    //let locationManager = CLLocationManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        //locationManager.delegate = self
+        //locationManager.requestWhenInUseAuthorization()
+        //locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         
-        setupCityDefaults() //MARK: dummy array
+        //setupCityDefaults() //MARK: dummy array
         
         // Initialize weather data instance
-        let weatherData = WeatherData()
-        WeatherManager.shared.weatherData = weatherData //MARK: Singleton
+        //let weatherData = WeatherData()
+        //WeatherManager.shared.weatherData = weatherData //MARK: Singleton
         
-        locationManager.requestLocation()
+        //locationManager.requestLocation()
         
         #warning("assign weatherData somewhere")
-        if let tabBarController = window?.rootViewController as? UITabBarController/*,
+        /*if let tabBarController = window?.rootViewController as? UITabBarController/*,
            let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
            let showWeatherVC = navigationController.viewControllers.first as? ShowWeatherViewController*/
         {
             print("successful casting")
             //showWeatherVC.weatherData = weatherData
-        }
+        }*/
         
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -79,7 +79,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     //MARK: - Custom Methods
-    private func setupCityDefaults(){
+   /* private func setupCityDefaults(){
         let defaults = UserDefaults(suiteName: K.appGroupBundleId)!
         
         let launchedBefore = defaults.bool(forKey: K.launchedBeforeKey)
@@ -93,12 +93,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 print("Unable to encode dummy cities array")
             }
         }
-    }
+    }*/
 }
 
 //MARK: - CLLocationManagerDelegate Conformance
 
-extension SceneDelegate: CLLocationManagerDelegate{
+/*extension SceneDelegate: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last{
             let latitude = location.coordinate.latitude
@@ -106,10 +106,11 @@ extension SceneDelegate: CLLocationManagerDelegate{
             let geocoder = CLGeocoder()
             geocoder.reverseGeocodeLocation(location) { placemarks, error in
                 if error == nil{
-                    let firstLocation = placemarks?[0]
-                    let cityName = firstLocation?.locality ?? "My Location"
-                    WeatherManager.shared.weatherData?.updateMyLocation(city: cityName, latitude: latitude, longitude: longitude)
-                    WeatherManager.shared.loadAllData()
+                    //let firstLocation = placemarks?[0]
+                    //let cityName = firstLocation?.locality ?? "My Location"
+                    //WeatherManager.shared.weatherData?.updateMyLocation(city: cityName, latitude: latitude, longitude: longitude)
+                    //WeatherManager.shared.loadAllData()
+                    print("Scene delegate success")
                 }
             }
         }
@@ -118,5 +119,5 @@ extension SceneDelegate: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
-}
+}*/
 

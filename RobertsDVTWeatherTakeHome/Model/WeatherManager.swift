@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WeatherManager{
+/*class WeatherManager{
     
     //MARK: - Variables and Properties
     let network = Network()
@@ -61,5 +61,5 @@ class WeatherManager{
         }
     }
     
-}
+}*/
 

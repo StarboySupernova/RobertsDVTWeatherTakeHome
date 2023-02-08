@@ -9,11 +9,11 @@ import UIKit
 import SwiftUI
 
 
-class WeatherViewHostingController: UIHostingController<WeatherSuccessView> {
+/*class WeatherViewHostingController: UIHostingController<WeatherSuccessView> {
     var dependency: WeatherData?
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder, rootView: WeatherSuccessView(weatherData: dependency))
     }
-}
+}*/
 
 

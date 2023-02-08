@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Network {
+/*class Network {
     
     //MARK: - Class Methods
     
@@ -86,5 +86,5 @@ class Network {
     }
     
     
-}
+}*/
 

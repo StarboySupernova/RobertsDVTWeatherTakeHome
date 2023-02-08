@@ -7,6 +7,7 @@
 
 import Foundation
 
+/*
 enum UpdateActions: String{
     case delete
     case update
@@ -157,3 +158,4 @@ class WeatherData {
         return maxId + 1
     }
 }
+*/

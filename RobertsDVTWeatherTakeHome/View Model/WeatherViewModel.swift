@@ -76,5 +76,8 @@ class WeatherViewModelImplementation: ObservableObject, WeatherViewModel {
         //self.cancellables.insert(cancellable)
     }
     
-    
+    func forecastValue() -> Forecast {
+        return self.forecast!
+    }
+
 }
