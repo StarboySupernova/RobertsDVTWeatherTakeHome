@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        City(id: 1,name: "Frankfurt", latitude: 50.11630522359943, longitude: 8.683179487766711),
 //        City(id: 2,name: "Paris", latitude: 48.85345575326961, longitude: 2.3500839018335804),
 //        City(id: 3,name: "Budapest", latitude: 47.51777591723693, longitude: 19.046526389932264),
-        City(id: 4,name: "London", latitude: 51.496936024546535, longitude: -0.12289001864225133)
+//    City(id: 4,name: "London", latitude: 51.496936024546535, longitude: -0.12289001864225133)
     ]*/
 
     var window: UIWindow?
@@ -26,26 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        //locationManager.delegate = self
-        //locationManager.requestWhenInUseAuthorization()
-        //locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         
         //setupCityDefaults() //MARK: dummy array
-        
-        // Initialize weather data instance
-        //let weatherData = WeatherData()
-        //WeatherManager.shared.weatherData = weatherData //MARK: Singleton
-        
-        //locationManager.requestLocation()
-        
-        #warning("assign weatherData somewhere")
-        /*if let tabBarController = window?.rootViewController as? UITabBarController/*,
-           let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
-           let showWeatherVC = navigationController.viewControllers.first as? ShowWeatherViewController*/
-        {
-            print("successful casting")
-            //showWeatherVC.weatherData = weatherData
-        }*/
         
         guard let _ = (scene as? UIWindowScene) else { return }
     }

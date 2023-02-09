@@ -16,8 +16,8 @@ class ShowWeatherViewController: UIViewController {
         //let button = UIButton(frame: CGRect(x: 0, y: 0, width: 220, height: 50))
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        let weatherView = WeatherView()
+    override func viewWillAppear(_ animated: Bool) {
+        let weatherView = WeatherView().navigationBarHidden(true)
         let weatherVC = UIHostingController(rootView: weatherView)
         self.navigationController?.pushViewController(weatherVC, animated: true)
     }

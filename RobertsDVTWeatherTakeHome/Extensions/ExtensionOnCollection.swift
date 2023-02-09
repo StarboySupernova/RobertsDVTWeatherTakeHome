@@ -22,15 +22,9 @@ extension Collection {
     }
 }
 
-#warning("TEMPORARY PLACEMENT")
-func dayName(_ unixValue: Int) -> String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "EEEE"
-    let date = Date(timeIntervalSince1970: TimeInterval(unixValue))
-    dateFormatter.timeZone = .current
-    return dateFormatter.string(from: date)
-}
 
+
+/*
 func dayExtractor(_ date: Date) -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE"
@@ -38,3 +32,4 @@ func dayExtractor(_ date: Date) -> String {
     return dayInWeek
 }
 
+*/

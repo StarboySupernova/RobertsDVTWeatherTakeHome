@@ -9,27 +9,25 @@ import Foundation
 
 extension Date{
     func dayOfWeek() -> String? {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "EEE"
-            return dateFormatter.string(from: self).capitalized
-            // or use capitalized(with: locale) if you want
-        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE"
+        return dateFormatter.string(from: self).capitalized
+        // or use capitalized(with: locale) if you want
+    }
+}
+
+func dayName(_ unixValue: Int) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "EEEE"
+    let date = Date(timeIntervalSince1970: TimeInterval(unixValue))
+    dateFormatter.timeZone = .current
+    return dateFormatter.string(from: date)
 }
 
 #warning("temporary placement")
 
-struct K {
+struct Constants {
     static let appGroupBundleId = "group.com.himanshumatharu.Minimalist-Weather"
-    
-    static let optionsSegue = "MainToOptions"
-    static let detailSegue = "MainToDetails"
-    static let searchSegue = "OptionsToSearch"
-    static let searchDetailSegue = "SearchToDetail"
-    
-    static let cellIdentifier = "ReusableCell"
-    static let cellNibName = "TempCell"
-    static let forecastCellIdentifier = "ReusableForecastCell"
-    static let forecastCellNibName = "ForecastCell"
     
     static let launchedBeforeKey = "LaunchedBefore"
     static let savedCitiesKey = "SavedCities"
