@@ -12,11 +12,7 @@ struct WeatherSuccessView: View {
     //@EnvironmentObject var favouritesViewModel: FavouritesViewModel
     @State private var showingSheet: Bool = false
     var forecast: Forecast
-    
-    /*init(forecast : Forecast) {
-        self.forecast = forecast
-    }*/
-    
+        
     var body: some View {
         if let weatherList = forecastResultStrip(forecast: forecast) {
             ZStack {
@@ -25,19 +21,16 @@ struct WeatherSuccessView: View {
                         case let name where name == "Clear" :
                             Image("sea_sunny")
                                 .resizable()
-                            //.aspectRatio(contentMode: .fill)
                                 .frame(maxWidth: getRect().width, maxHeight: getRect().height * 0.4)
                                 .edgesIgnoringSafeArea([.top, .horizontal])
                         case let name where name == "Rain" :
                             Image("sea_rainy")
                                 .resizable()
-                            //.aspectRatio(3 / 2, contentMode: .fill)
                                 .frame(maxWidth: getRect().width, maxHeight: getRect().height * 0.4)
                                 .edgesIgnoringSafeArea([.top, .horizontal])
                         default:
                             Image("sea_cloudy")
                                 .resizable()
-                            //.aspectRatio(3 / 2, contentMode: .fill)
                                 .frame(maxWidth: getRect().width, maxHeight: getRect().height * 0.4)
                                 .edgesIgnoringSafeArea([.top, .horizontal])
                     }
@@ -47,21 +40,15 @@ struct WeatherSuccessView: View {
                 .frame(maxWidth: getRect().width, maxHeight: getRect().height)
                 .overlay(alignment: .topTrailing) {
                     Button {
-                        /*
-                        if let city = LocationViewModel.shared.currentPlacemark?.locality {
-                            if favouritesViewModel.contains(city) {
-                                showingSheet.toggle()
-                            } else {
-                                let location = Locator(name: city, latitude: (LocationViewModel.shared.lastSeenLocation?.coordinate.latitude)!, longitude: (LocationViewModel.shared.lastSeenLocation?.coordinate.longitude)!)
-                                favouritesViewModel.add(location)
-                                showingSheet.toggle()
-                            }
-                         
-                        } else {
-                            showErrorAlertView("Error", "Could not add curremt location to remote server", handler: {})
+                        let forecast = weatherViewModel.forecastValue()
+                        let city = forecast.city
+                        let userDefaults = UserDefaults.standard
+                        do {
+                            try userDefaults.setObject(city, forKey: city.name)
+                            print(city.name)
+                        } catch {
+                            showErrorAlertView("Error", "Unable to save to internal memory", handler: {})
                         }
-                         */
-
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(.white)

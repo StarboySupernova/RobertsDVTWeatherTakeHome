@@ -36,10 +36,27 @@ func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
         times.contains(weatherList.dt)
     })
     
+    //MARK: Third approach
+    var final: [WeatherList] = []
+    let forecastsByDate = Dictionary(grouping: forecast.list, by: {$0.dateWoTime})
+    for (date, forecastResult) in forecastsByDate{
+        let avgTempLow = forecastResult.map { each in return each.main.tempMax }.average
+        //let avgTempHigh = forecastResult.map { each in return each.main.tempMin }.average
+        //let description = forecast.map {each in return each.description }.mostFrequent() // description to be used in customForecastView
+        //final.append(Forecast(date: date!, temp: avgTemp, tempLow: avgTempLow, tempHigh: avgTempHigh, description: description!))
+    }
+    final.append(contentsOf: forecast.list)
+    final = final.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
+    
     #warning("make an extension in WeatherList for computed object 'date' that returns a date object for dt Int value")
     #warning("extract dateWoTime from each 'date'")
     #warning("now I can group each item in forecast.list, of type WeatherList, with $0.dateWoTime")
     #warning("then use average for that")
+    struct ForecastResult {
+        var date: Date
+        var descrption: String
+    }
+    
     /*let _ = print("this is result now", res.map({
         $0.dtTxt
     }))*/

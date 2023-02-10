@@ -13,7 +13,6 @@ protocol APIBuilder {
     var urlRequest: URLRequest {get}
     var baseURL: URL {get}
     var key: String {get} //API key to retrieve the resource
-    //func locationProvider(latitude: Double?, longitude: Double?) -> CLLocationCoordinate2D
 }
 
 enum OpenWeatherMapAPI {
@@ -34,7 +33,7 @@ extension OpenWeatherMapAPI: APIBuilder {
             case .getCurrentWeather:
                 return URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=-25.750445&lon=28.237550&exclude=minutely,hourly,alerts&units=metric&APPID=\(self.key)")! //should find a way to inject location here
             case .getForecast:
-                return URL(string: "https://api.openweathermap.org/data/2.5/forecast?lat=\(LocationViewModel.shared.lastSeenLocation?.coordinate.latitude ?? LocationViewModel.defaultLocation.latitude)&lon=\(LocationViewModel.shared.lastSeenLocation?.coordinate.longitude ?? LocationViewModel.defaultLocation.longitude)&exclude=minutely,hourly,alerts&units=metric&appid=\(self.key)")!
+            return URL(string: "\(Constants.apiForecastBaseUrl)?lat=\(LocationViewModel.shared.lastSeenLocation?.coordinate.latitude ?? LocationViewModel.defaultLocation.latitude)&lon=\(LocationViewModel.shared.lastSeenLocation?.coordinate.longitude ?? LocationViewModel.defaultLocation.longitude)&exclude=minutely,hourly,alerts&units=\(Constants.apiUnits)&appid=\(self.key)")!
         }
     }
     

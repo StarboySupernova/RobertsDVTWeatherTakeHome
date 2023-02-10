@@ -27,15 +27,9 @@ func dayName(_ unixValue: Int) -> String {
 #warning("temporary placement")
 
 struct Constants {
-    static let appGroupBundleId = "group.com.himanshumatharu.Minimalist-Weather"
-    
-    static let launchedBeforeKey = "LaunchedBefore"
-    static let savedCitiesKey = "SavedCities"
-    
     static let apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather"
     static let apiKey = "1a2176f7883d06ded7ca7e8dc6e19f18"
     static let apiUnits = "metric"
     static let apiForecastBaseUrl = "https://api.openweathermap.org/data/2.5/forecast"
-    
 }
 
