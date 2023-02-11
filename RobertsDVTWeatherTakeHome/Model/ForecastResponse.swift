@@ -142,6 +142,12 @@ struct CustomForecast {
     var description: String
     var maxTemp: Double
     var minTemp: Double
+    var temp: Double
 }
 
+extension CustomForecast: Identifiable {
+    var id: UUID {
+        return UUID()
+    }
+}
 

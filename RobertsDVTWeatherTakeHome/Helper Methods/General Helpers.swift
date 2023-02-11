@@ -9,14 +9,15 @@ import Foundation
 import SwiftUI
 
 //MARK: Fourth Approach
-func forecastResultStrip(forecast: Forecast) -> [CustomForecast] {
+func forecastResultStrip(forecast: Forecast) -> [CustomForecast]? {
     var final: [CustomForecast] = []
     let forecastsByDate = Dictionary(grouping: forecast.list, by: {$0.dateWoTime})
     for (date, forecastResult) in forecastsByDate{
-        let avgTempLow = forecastResult.map { each in return each.main.tempMax }.average
-        let avgTempHigh = forecastResult.map { each in return each.main.tempMin }.average
-        let desc = forecastResult.map { each in return each.weather[0].main }.mostFrequent()
-        final.append(CustomForecast(date: date!, description: desc!, maxTemp: avgTempHigh, minTemp: avgTempLow))
+        let avgTemp = forecastResult.map { each in each.main.temp }.average
+        let avgTempLow = forecastResult.map { each in return each.main.tempMin }.average
+        let avgTempHigh = forecastResult.map { each in return each.main.tempMax }.maximumValue
+        let desc = forecastResult.map { each in return each.weather.last!.main }.mostFrequent()
+        final.append(CustomForecast(date: date!, description: desc!, maxTemp: avgTempHigh, minTemp: avgTempLow, temp: avgTemp))
     }
     final = final.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
     

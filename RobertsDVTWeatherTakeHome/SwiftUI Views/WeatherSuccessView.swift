@@ -17,7 +17,7 @@ struct WeatherSuccessView: View {
         if let weatherList = forecastResultStrip(forecast: forecast) {
             ZStack {
                 VStack {
-                    switch weatherList.first?.weather.first?.main {
+                    switch weatherList.first?.description {
                         case let name where name == "Clear" :
                             Image("sea_sunny")
                                 .resizable()
@@ -70,15 +70,15 @@ struct WeatherSuccessView: View {
                         HStack {
                             //unexpected behaviour for min and max temperatures for the day. will look into purchasing license for 16 day forecast API
                             //minMax and weatherList.first.main produce the same values
-                            iconView(weatherList.first!.weather.first!.main, label: String.localizedStringWithFormat("%.0f° \n min", minMax?.min ?? weatherList.first!.main.tempMin))
+                            iconView(weatherList.first!.description, label: String.localizedStringWithFormat("%.0f° \n min", minMax?.min ?? weatherList.first!.minTemp))
                             
                             Spacer()
                             
-                            iconView(weatherList.first!.weather.first!.main, label: String.localizedStringWithFormat("%.0f° \n current", weatherList.first!.main.temp))
+                            iconView(weatherList.first!.description, label: String.localizedStringWithFormat("%.0f° \n current", weatherList.first!.temp))
                             
                             Spacer()
                             
-                            iconView(weatherList.first!.weather.first!.main, label: String.localizedStringWithFormat("%.0f° \n max", minMax?.max ?? weatherList.first!.main.tempMax))
+                            iconView(weatherList.first!.description, label: String.localizedStringWithFormat("%.0f° \n max", minMax?.max ?? weatherList.first!.maxTemp))
                         }
                         .padding(.horizontal)
                         
@@ -89,15 +89,15 @@ struct WeatherSuccessView: View {
                         ForEach(weatherList) { listItem in
                             HStack(spacing: 0) {
                                 CustomRow {
-                                    Text(dayName(listItem.dt))
+                                    Text(getWeekday(from: listItem.date))
                                         .font(.caption)
                                         .padding(.leading)
                                         .frame(maxWidth: 150, alignment: .leading)
                                 } center: {
-                                    iconView(listItem.weather[0].main)
+                                    iconView(listItem.description)
                                         .padding(.horizontal)
                                 } right: {
-                                    Text(String.localizedStringWithFormat("%.0f°", listItem.main.tempMax))
+                                    Text(String.localizedStringWithFormat("%.0f°", listItem.maxTemp))
                                         .padding(.trailing)
                                 }
                             }
@@ -107,7 +107,7 @@ struct WeatherSuccessView: View {
                     .frame(maxWidth: getRect().width, maxHeight: getRect().height * 0.55, alignment: .top)
                     //background here
                     .background {
-                        switch weatherList.first?.weather.first?.main {
+                        switch weatherList.first!.description {
                             case let name where name == "Clear" :
                                 Color.blue
                             case let name where name == "Rain" :
@@ -121,7 +121,7 @@ struct WeatherSuccessView: View {
             }
             .frame(maxWidth: getRect().width, maxHeight: getRect().height)
             .background {
-                switch weatherList.first?.weather.first?.main {
+                switch weatherList.first?.description {
                     case let name where name == "Clear" :
                         Color.blue
                     case let name where name == "Rain" :

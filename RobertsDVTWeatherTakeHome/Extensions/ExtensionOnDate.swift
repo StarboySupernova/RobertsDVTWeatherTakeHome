@@ -24,6 +24,13 @@ func dayName(_ unixValue: Int) -> String {
     return dateFormatter.string(from: date)
 }
 
+func getWeekday(from date: Date) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "EEEE"
+    return dateFormatter.string(from: date)
+}
+
+
 #warning("temporary placement")
 
 struct Constants {

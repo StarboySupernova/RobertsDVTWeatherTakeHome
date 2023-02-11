@@ -32,5 +32,19 @@ extension Array where Element: BinaryFloatingPoint {
             return Double(sum) / Double(self.count)
         }
     }
+    
+    var maximumValue: Double {
+        if self.isEmpty {
+            return 0.0
+        } else {
+            var currentMax = self[0]
+            for value in self[1..<self.count] {
+                if value > currentMax {
+                    currentMax = value
+                }
+            }
+            return Double(currentMax)
+        }
+    }
 
 }
