@@ -137,3 +137,11 @@ struct Wind: Codable {
     let gust: Double
 }
 
+struct CustomForecast {
+    var date: Date
+    var description: String
+    var maxTemp: Double
+    var minTemp: Double
+}
+
+

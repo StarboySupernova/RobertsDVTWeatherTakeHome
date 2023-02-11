@@ -8,7 +8,24 @@
 import Foundation
 import SwiftUI
 
+//MARK: Fourth Approach
+func forecastResultStrip(forecast: Forecast) -> [CustomForecast] {
+    var final: [CustomForecast] = []
+    let forecastsByDate = Dictionary(grouping: forecast.list, by: {$0.dateWoTime})
+    for (date, forecastResult) in forecastsByDate{
+        let avgTempLow = forecastResult.map { each in return each.main.tempMax }.average
+        let avgTempHigh = forecastResult.map { each in return each.main.tempMin }.average
+        let desc = forecastResult.map { each in return each.weather[0].main }.mostFrequent()
+        final.append(CustomForecast(date: date!, description: desc!, maxTemp: avgTempHigh, minTemp: avgTempLow))
+    }
+    final = final.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
+    
+    return final
+}
+
 /*func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
+    
+    //MARK: first approach
     var times : [Int] = []
     
     var firstDay : [Int] = []
@@ -25,7 +42,6 @@ import SwiftUI
         return nil
     }
     
-    //MARK: first approach
     for i in stride(from: TimeInterval(currentWeatherTime!.dt), through: Date(timeIntervalSince1970: TimeInterval(currentWeatherTime!.dt + 432_000)).timeIntervalSince1970, by: 86_400) {
         times.append(Int(i))
     }
@@ -54,13 +70,7 @@ import SwiftUI
     #warning("extract dateWoTime from each 'date'")
     #warning("now I can group each item in forecast.list, of type WeatherList, with $0.dateWoTime")
     #warning("then use average for that")
-    struct CustomForecast {
-        var date: Date
-        var description: String
-        var maxTemp: Double
-        var minTemp: Double
-    }
-    
+        
     /*let _ = print("this is result now", res.map({
         $0.dtTxt
     }))*/
@@ -108,7 +118,9 @@ import SwiftUI
     return result
 }*/
 
-func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
+//MARK: Third Approach
+/*
+ func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
     // Get the current date
     let now = Date.now
     
@@ -120,10 +132,6 @@ func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
     // If there is no weather time that meets the condition, return nil
     guard let weatherTime = currentWeatherTime else {
         return nil
-    }
-    
-    for day in forecast.list {
-        
     }
     
     // Calculate the dt values for each day
@@ -153,7 +161,7 @@ func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
     // Return the filtered result
     return result
 }
-
+*/
 
 func forecastMinMax(forecast: Forecast) -> (min :Double, max: Double)? {
     var maxArray : [Double] = []
