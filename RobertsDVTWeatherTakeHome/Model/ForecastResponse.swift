@@ -116,6 +116,20 @@ struct Weather: Codable {
     }
 }
 
+extension Weather : Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(main)
+        hasher.combine(weatherDescription)
+        hasher.combine(icon)
+    }
+    
+    static func == (lhs: Weather, rhs: Weather) -> Bool {
+        return lhs.id == rhs.id && lhs.main == rhs.main && lhs.weatherDescription == rhs.weatherDescription && lhs.icon == rhs.icon
+    }
+
+}
+
 // MARK: - Wind
 struct Wind: Codable {
     let speed: Double

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
+/*func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
     var times : [Int] = []
     
     var firstDay : [Int] = []
@@ -37,24 +37,28 @@ func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
     })
     
     //MARK: Third approach
-    var final: [WeatherList] = []
+    var final: [CustomForecast] = []
     let forecastsByDate = Dictionary(grouping: forecast.list, by: {$0.dateWoTime})
     for (date, forecastResult) in forecastsByDate{
         let avgTempLow = forecastResult.map { each in return each.main.tempMax }.average
-        //let avgTempHigh = forecastResult.map { each in return each.main.tempMin }.average
-        //let description = forecast.map {each in return each.description }.mostFrequent() // description to be used in customForecastView
+        let avgTempHigh = forecastResult.map { each in return each.main.tempMin }.average
+        //let description = forecastResult.map {each in return each.weather }.mostFrequent() // description to be used in customForecastView
         //final.append(Forecast(date: date!, temp: avgTemp, tempLow: avgTempLow, tempHigh: avgTempHigh, description: description!))
+        let desc = forecastResult.map { each in return each.weather[0].main }.mostFrequent()
+        final.append(CustomForecast(date: date!, description: desc!, maxTemp: avgTempHigh, minTemp: avgTempLow))
     }
-    final.append(contentsOf: forecast.list)
-    final = final.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
+    //final.append(contentsOf: forecast.list)
+    //final = final.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
     
     #warning("make an extension in WeatherList for computed object 'date' that returns a date object for dt Int value")
     #warning("extract dateWoTime from each 'date'")
     #warning("now I can group each item in forecast.list, of type WeatherList, with $0.dateWoTime")
     #warning("then use average for that")
-    struct ForecastResult {
+    struct CustomForecast {
         var date: Date
-        var descrption: String
+        var description: String
+        var maxTemp: Double
+        var minTemp: Double
     }
     
     /*let _ = print("this is result now", res.map({
@@ -102,7 +106,54 @@ func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
     }
     
     return result
+}*/
+
+func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
+    // Get the current date
+    let now = Date.now
+    
+    // Find the first weather time in the forecast list where the date is greater than the current date
+    let currentWeatherTime = forecast.list.first {
+        Date(timeIntervalSince1970: TimeInterval($0.dt)) > now
+    }
+    
+    // If there is no weather time that meets the condition, return nil
+    guard let weatherTime = currentWeatherTime else {
+        return nil
+    }
+    
+    for day in forecast.list {
+        
+    }
+    
+    // Calculate the dt values for each day
+    let days = [weatherTime.dt, weatherTime.dt + 86_400, weatherTime.dt + 86_400 * 2, weatherTime.dt + 86_400 * 3, weatherTime.dt + 86_400 * 4]
+    let endTime = weatherTime.dt + 432_000
+    
+    // Calculate the maximum dt value for each day
+    let maxValues = (0...4).map { dayIndex -> Int in
+        let startTime = days[dayIndex]
+        let end = (dayIndex == 4) ? endTime : days[dayIndex + 1]
+        return (0...Int((end - startTime) / 10_800)).reduce(startTime) { (maxValue: Int, nextValue: Int) -> Int in
+            return max(maxValue, nextValue * 10_800 + startTime)
+        }
+    }
+    
+    // If the number of max values is not 5, show an error alert and return nil
+    guard maxValues.count == 5 else {
+        showErrorAlertView("Error", "Unable to initialize max values", handler: {})
+        return nil
+    }
+    
+    // Filter the forecast list to only include weatherList items with a dt value that is in the maxValues array
+    let result = forecast.list.filter { weatherList in
+        maxValues.contains(weatherList.dt)
+    }
+    
+    // Return the filtered result
+    return result
 }
+
 
 func forecastMinMax(forecast: Forecast) -> (min :Double, max: Double)? {
     var maxArray : [Double] = []
