@@ -30,13 +30,16 @@ func getWeekday(from date: Date) -> String {
     return dateFormatter.string(from: date)
 }
 
-
-#warning("temporary placement")
-
-struct Constants {
-    static let apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather"
-    static let apiKey = "1a2176f7883d06ded7ca7e8dc6e19f18"
-    static let apiUnits = "metric"
-    static let apiForecastBaseUrl = "https://api.openweathermap.org/data/2.5/forecast"
+func extractHourFromUnixTimestamp(timestamp: Double) -> Int {
+    let date = Date(timeIntervalSince1970: timestamp)
+    let calendar = Calendar.current
+    let hour = calendar.component(.hour, from: date)
+    return hour
 }
+
+func getDateFromUnixTimestamp(timestamp: Double) -> Date {
+    let timeInterval = TimeInterval(timestamp)
+    return Date(timeIntervalSince1970: timeInterval)
+}
+
 

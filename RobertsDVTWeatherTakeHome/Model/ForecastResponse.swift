@@ -61,9 +61,11 @@ extension WeatherList {
         return Date(timeIntervalSince1970: TimeInterval(dt))
     }
     
-    var dateWoTime: Date?{
+    var dateWoTime: Date? {
         return Calendar.current.date(from: Calendar.current.dateComponents([.year,.month,.day], from: date)) ?? nil
     }
+    
+    
 }
 
 // MARK: - Clouds
@@ -149,5 +151,22 @@ extension CustomForecast: Identifiable {
     var id: UUID {
         return UUID()
     }
+}
+
+struct HourlyForecast {
+    var temp: Double
+    var description: String
+    var unixTime: Double
+}
+
+extension HourlyForecast {
+    var date: Date {
+        return Date(timeIntervalSince1970: TimeInterval(unixTime))
+    }
+}
+
+enum ForecastPeriod {
+    case hourly
+    case daily
 }
 

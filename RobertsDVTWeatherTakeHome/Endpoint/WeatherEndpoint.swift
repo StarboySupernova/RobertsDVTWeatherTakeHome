@@ -8,6 +8,13 @@
 import Foundation
 import CoreLocation
 
+struct Constants {
+    static let apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather"
+    static let apiKey = "1a2176f7883d06ded7ca7e8dc6e19f18"
+    static let apiUnits = "metric"
+    static let apiForecastBaseUrl = "https://api.openweathermap.org/data/2.5/forecast"
+}
+
 //protocol used here to promote reusability, e.g. when using another API, when can use the same pattern here
 protocol APIBuilder {
     var urlRequest: URLRequest {get}

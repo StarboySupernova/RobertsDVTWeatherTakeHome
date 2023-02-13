@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-//MARK: Fourth Approach
+//MARK: Fourth Approach - forecastResultStrip
 func forecastResultStrip(forecast: Forecast) -> [CustomForecast]? {
     var final: [CustomForecast] = []
     let forecastsByDate = Dictionary(grouping: forecast.list, by: {$0.dateWoTime})
@@ -119,7 +119,7 @@ func forecastResultStrip(forecast: Forecast) -> [CustomForecast]? {
     return result
 }*/
 
-//MARK: Third Approach
+//MARK: Third Approach - forecastResultStrip
 /*
  func forecastResultStrip(forecast: Forecast) -> [WeatherList]? {
     // Get the current date
@@ -164,52 +164,60 @@ func forecastResultStrip(forecast: Forecast) -> [CustomForecast]? {
 }
 */
 
-func forecastMinMax(forecast: Forecast) -> (min :Double, max: Double)? {
-    var maxArray : [Double] = []
-    var minArray : [Double] = []
-    
+//TODO: Refactor this code to take advantage of the prefix and suffix methods on array instead of looping through forecast.list and building the arrays separately
+func forecastMinMax(forecast: Forecast) -> (min: Double, max: Double)? {
+    // Initialize arrays to store minimum and maximum temperatures
+    var maxArray: [Double] = []
+    var minArray: [Double] = []
+
     let index = forecast.list.firstIndex {
         Date(timeIntervalSince1970: TimeInterval($0.dt)) > Date.now
     }
-    
+
     let finalIndex = forecast.list.firstIndex {
-        //$0.dtTxt.contains("00:00:00") //not producing expected results
-        Date(timeIntervalSince1970: TimeInterval($0.dt)) > Calendar.current.date(byAdding: DateComponents(hour: 24), to: Date.now) ?? Date.now //changed Boolean test from < to > and now it emits expected results
+        Date(timeIntervalSince1970: TimeInterval($0.dt)) > Calendar.current.date(byAdding: DateComponents(hour: 24), to: Date.now) ?? Date.now
     }
-    
+
+    // Returning nil
     guard index != nil, finalIndex != nil else {
         return nil
     }
-    
+
+    // Append maximum temperatures from the forecast list to the maxArray
     for max in forecast.list[index!...finalIndex!] {
         maxArray.append(max.main.tempMax)
     }
-    
+
+    // Append minimum temperatures from the forecast list to the minArray
     for min in forecast.list[index!...finalIndex!] {
         minArray.append(min.main.tempMin)
     }
-    
+
     let max = maxArray.max()
+
     let min = minArray.min()
-    
-    //not producing expected results, have no choice but to iterate over the array slice
-    /*
-    let max = forecast.list[index!...finalIndex!].max { a, b in
-        a.main.tempMax < b.main.tempMax
-    }
-    
-    let min = forecast.list[index!...finalIndex!].max { a, b in
-        a.main.tempMax > b.main.tempMax
-    }
-     */
-    
+
+    // Returning nil
     guard max != nil, min != nil else {
         return nil
     }
 
+    // Return the calculated minimum and maximum temperatures as a tuple
     return (min!, max!)
 }
 
+func hourlyForecast(forecast: Forecast) -> [HourlyForecast]? {
+    var final: [HourlyForecast] = []
+    let forecasts = forecast.list.prefix(5)
+    for listItem in forecasts {
+        let temp = listItem.main.temp
+        let description = listItem.weather.last!.main
+        let unixTime = listItem.dt
+        final.append(HourlyForecast(temp: temp, description: description, unixTime: Double(unixTime)))
+    }
+    final = final.sorted(by: {$0.unixTime > $1.unixTime})
+    return final
+}
 
 func showErrorAlertView (_ alertTitle: String, _ alertMessage: String, handler: @escaping () -> Void) {
     let alertView = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
@@ -238,3 +246,42 @@ func showSuccessAlertView (_ alertTitle: String, _ alertMessage: String, handler
     let rootVC = window?.rootViewController
     rootVC?.present(alertView, animated: true)
 }
+
+struct Arc: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
+        path.move(to: CGPoint(x: rect.minX - 1, y: rect.minY))
+        path.addQuadCurve(to: CGPoint(x: rect.maxX + 1, y: rect.minY), control: CGPoint(x: rect.midX, y: rect.midY))
+        path.addLine(to: CGPoint(x: rect.maxX + 1, y: rect.maxY + 1))
+        path.addLine(to: CGPoint(x: rect.minX - 1, y: rect.maxY + 1))
+        path.closeSubpath()
+
+        return path
+    }
+}
+
+//code generated from https://quassum.github.io/SVG-to-SwiftUI/, by copying our Figma design as SVG and converting it to SwiftUI
+struct Trapezoid: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let width = rect.size.width
+        let height = rect.size.height
+        path.move(to: CGPoint(x: 0, y: 0.37965*height))
+        path.addCurve(to: CGPoint(x: 0.03312*width, y: 0.02995*height), control1: CGPoint(x: 0, y: 0.18083*height), control2: CGPoint(x: 0, y: 0.08142*height))
+        path.addCurve(to: CGPoint(x: 0.21492*width, y: 0.04559*height), control1: CGPoint(x: 0.06623*width, y: -0.02153*height), control2: CGPoint(x: 0.1158*width, y: 0.00085*height))
+        path.addLine(to: CGPoint(x: 0.9003*width, y: 0.35499*height))
+        path.addCurve(to: CGPoint(x: 0.98602*width, y: 0.42173*height), control1: CGPoint(x: 0.94813*width, y: 0.37658*height), control2: CGPoint(x: 0.97204*width, y: 0.38738*height))
+        path.addCurve(to: CGPoint(x: width, y: 0.59997*height), control1: CGPoint(x: width, y: 0.45609*height), control2: CGPoint(x: width, y: 0.50405*height))
+        path.addLine(to: CGPoint(x: width, y: 0.74857*height))
+        path.addCurve(to: CGPoint(x: 0.98116*width, y: 0.96318*height), control1: CGPoint(x: width, y: 0.8671*height), control2: CGPoint(x: width, y: 0.92636*height))
+        path.addCurve(to: CGPoint(x: 0.87135*width, y: height), control1: CGPoint(x: 0.96232*width, y: height), control2: CGPoint(x: 0.93199*width, y: height))
+        path.addLine(to: CGPoint(x: 0.12865*width, y: height))
+        path.addCurve(to: CGPoint(x: 0.01884*width, y: 0.96318*height), control1: CGPoint(x: 0.06801*width, y: height), control2: CGPoint(x: 0.03768*width, y: height))
+        path.addCurve(to: CGPoint(x: 0, y: 0.74857*height), control1: CGPoint(x: 0, y: 0.92636*height), control2: CGPoint(x: 0, y: 0.8671*height))
+        path.addLine(to: CGPoint(x: 0, y: 0.37965*height))
+        path.closeSubpath()
+        return path
+    }
+}
+
