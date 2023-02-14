@@ -10,6 +10,7 @@ import SwiftUI
 struct ForecastView: View {
     @State private var selection = 0
     var bottomSheetTranslationProrated: CGFloat = 1
+    var forecast: Forecast
     
     var body: some View {
         ScrollView {
@@ -21,12 +22,20 @@ struct ForecastView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         if selection == 0 {
-                            ForEach(Forecast.hourly) { forecast in
-                                ForecastCard(forecast: forecast, forecastPeriod: .hourly)
+                            if let hourly = hourlyForecast(forecast: forecast) {
+                                ForEach(hourly) { hour in
+                                    ForecastCard(forecast: forecast, forecastPeriod: .hourly, hourly: hour)
+                                }
+                            } else {
+                                ProgressView()
                             }
                         } else {
-                            ForEach(Forecast.daily) { forecast in
-                                ForecastCard(forecast: forecast, forecastPeriod: .daily)
+                            if let weatherList = forecastResultStrip(forecast: forecast) {
+                                ForEach(weatherList) { daily in
+                                    ForecastCard(forecast: forecast, forecastPeriod: .daily, daily: daily)
+                                }
+                            } else {
+                                ProgressView()
                             }
                         }
                     }
@@ -65,6 +74,7 @@ struct ForecastView: View {
 
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastView()
+        //ForecastView()
+        EmptyView()
     }
 }

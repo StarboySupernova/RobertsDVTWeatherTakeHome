@@ -10,9 +10,11 @@ import SwiftUI
 import BottomSheet
 
 struct FavouritesForecastView: View {
+    @EnvironmentObject var weatherViewModel: WeatherViewModelImplementation
     @State var bottomSheetPosition: BottomSheetPosition = .middle
     @State var bottomSheetTranslation: CGFloat = BottomSheetPosition.middle.rawValue
     @State var hasDragged: Bool = false
+    var forecast: Forecast
     
     var body: some View {
         NavigationView {
@@ -62,7 +64,7 @@ struct FavouritesForecastView: View {
                             //Text(bottomSheetTranslationProrated.formatted())
                         },
                         content: {
-                            ForecastView(bottomSheetTranslationProrated: bottomSheetTranslationProrated)
+                            ForecastView(bottomSheetTranslationProrated: bottomSheetTranslationProrated, forecast: forecast)
                         }
                     )
                     .onBottomSheetDrag { translation in
@@ -115,7 +117,8 @@ struct FavouritesForecastView: View {
 }
 struct FavouritesForecastView_Previews: PreviewProvider {
     static var previews: some View {
-        FavouritesForecastView()
+        EmptyView()
+        //FavouritesForecastView()
     }
 }
 

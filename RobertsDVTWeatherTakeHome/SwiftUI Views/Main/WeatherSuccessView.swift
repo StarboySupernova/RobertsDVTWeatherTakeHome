@@ -44,7 +44,7 @@ struct WeatherSuccessView: View {
                         let city = forecast.city
                         let userDefaults = UserDefaults.standard
                         do {
-                            try userDefaults.setObject(city, forKey: city.name)
+                            try userDefaults.setObject(forecast, forKey: city.name) //we can get forecast.city when retrieving
                             print(city.name)
                         } catch {
                             showErrorAlertView("Error", "Unable to save to internal memory", handler: {})
@@ -105,8 +105,8 @@ struct WeatherSuccessView: View {
                         }
                     }
                     .frame(maxWidth: getRect().width, maxHeight: getRect().height * 0.55, alignment: .top)
-                    //background here
                     .background {
+#warning("extract to function")
                         switch weatherList.first!.description {
                             case let name where name == "Clear" :
                                 Color.blue

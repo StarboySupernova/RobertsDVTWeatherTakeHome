@@ -208,7 +208,7 @@ func forecastMinMax(forecast: Forecast) -> (min: Double, max: Double)? {
 
 func hourlyForecast(forecast: Forecast) -> [HourlyForecast]? {
     var final: [HourlyForecast] = []
-    let forecasts = forecast.list.prefix(5)
+    let forecasts = forecast.list.prefix(5) //no need for index & range here, we just take the first 5 every time this is called
     for listItem in forecasts {
         let temp = listItem.main.temp
         let description = listItem.weather.last!.main

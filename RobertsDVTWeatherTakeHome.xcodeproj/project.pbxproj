@@ -33,6 +33,7 @@
 		C9540269298BA47200F9990F /* LabelledDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9540268298BA47200F9990F /* LabelledDivider.swift */; };
 		C954026B298BA50200F9990F /* CustomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C954026A298BA50200F9990F /* CustomRow.swift */; };
 		C954026E298BAB9F00F9990F /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C954026D298BAB9F00F9990F /* LabelStyle.swift */; };
+		C956AEF1299BC9A700DBE28E /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956AEF0299BC9A700DBE28E /* FavouritesView.swift */; };
 		C95B08CE298A5E1C0011966D /* WeatherDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B08CD298A5E1C0011966D /* WeatherDisplay.swift */; };
 		C96D28262988230F007CF170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D28252988230F007CF170 /* AppDelegate.swift */; };
 		C96D28282988230F007CF170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D28272988230F007CF170 /* SceneDelegate.swift */; };
@@ -79,6 +80,7 @@
 		C9540268298BA47200F9990F /* LabelledDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelledDivider.swift; sourceTree = "<group>"; };
 		C954026A298BA50200F9990F /* CustomRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRow.swift; sourceTree = "<group>"; };
 		C954026D298BAB9F00F9990F /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
+		C956AEF0299BC9A700DBE28E /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		C95B08CD298A5E1C0011966D /* WeatherDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplay.swift; sourceTree = "<group>"; };
 		C96D28222988230F007CF170 /* RobertsDVTWeatherTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobertsDVTWeatherTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96D28252988230F007CF170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				C90A89CB2998ADBF00D5707D /* FavouritesForecastView.swift */,
 				C90A89CD2998AE8E00D5707D /* ForecastView.swift */,
 				C90A89D22998AF8900D5707D /* WeatherListView.swift */,
+				C956AEF0299BC9A700DBE28E /* FavouritesView.swift */,
 			);
 			path = Favourites;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				C90A89CE2998AE8E00D5707D /* ForecastView.swift in Sources */,
 				C99AA3422992696300560A2E /* General Helpers.swift in Sources */,
 				C97EBF78298DE9C900A29C86 /* ShowWeatherViewController.swift in Sources */,
+				C956AEF1299BC9A700DBE28E /* FavouritesView.swift in Sources */,
 				C954026E298BAB9F00F9990F /* LabelStyle.swift in Sources */,
 				C90A89DB2998B1C400D5707D /* SegmentedControl.swift in Sources */,
 				C9540269298BA47200F9990F /* LabelledDivider.swift in Sources */,

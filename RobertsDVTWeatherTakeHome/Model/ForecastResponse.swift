@@ -159,6 +159,12 @@ struct HourlyForecast {
     var unixTime: Double
 }
 
+extension HourlyForecast: Identifiable {
+    var id: String {
+        UUID().uuidString
+    }
+}
+
 extension HourlyForecast {
     var date: Date {
         return Date(timeIntervalSince1970: TimeInterval(unixTime))

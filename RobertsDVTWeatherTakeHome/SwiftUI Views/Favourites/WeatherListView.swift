@@ -7,9 +7,25 @@
 
 import SwiftUI
 
-struct WeatherListView: View {
+/*
+ struct WeatherListView: View {
     @State private var searchText = ""
         
+    var searchResults: [Forecast]? {
+        let userDefaults = UserDefaults.standard
+        let fetchedForecast: Forecast?
+        do {
+            try fetchedForecast = userDefaults.getObject(forKey: searchText, castTo: Forecast.self)
+        } catch {
+            showErrorAlertView("Error", "City not found", handler: {})
+        }
+        if searchText.isEmpty {
+            return nil
+        } else {
+            return Forecast.cities.filter { $0.location.contains(searchText) }
+        }
+    }
+    
     var body: some View {
         ZStack {
             // MARK: Background
@@ -39,3 +55,4 @@ struct WeatherListView_Previews: PreviewProvider {
         WeatherListView()
     }
 }
+ */

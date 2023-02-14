@@ -25,6 +25,8 @@ struct ForecastCard: View {
                 return isToday
             }
         }
+        // Return a default value in case none of the if or else conditions are met
+        return false
     }
     
     var body: some View {
@@ -56,7 +58,7 @@ struct ForecastCard: View {
                 .frame(height: 42)
                 
                 // MARK: Forecast Temperature
-                Text("\(forecast.temperature)°")
+                Text("\(self.hourly != nil ? hourly!.temp : daily!.maxTemp)°")
                     .font(.title3)
             }
             .padding(.horizontal, 8)
@@ -67,8 +69,10 @@ struct ForecastCard: View {
     }
 }
 
+/*
 struct ForecastCard_Previews: PreviewProvider {
     static var previews: some View {
         ForecastCard(forecast: Forecast.hourly[0], forecastPeriod: .hourly)
     }
 }
+ */
