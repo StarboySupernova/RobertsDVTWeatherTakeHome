@@ -13,16 +13,18 @@ import SwiftUI
         
     var searchResults: [Forecast]? {
         let userDefaults = UserDefaults.standard
-        let fetchedForecasts: [Forecast]
+        let fetchedForecasts: Set<Forecast>
+        var emittedForecasts: [Forecast] = []
         do {
-            try fetchedForecasts = userDefaults.getObject(forKey: "saved", castTo: [Forecast].self)
+            try fetchedForecasts = userDefaults.getObject(forKey: "savedLocations", castTo: Set<Forecast>.self)
+            emittedForecasts = Array(fetchedForecasts)
         } catch {
             showErrorAlertView("Error", "City not found", handler: {})
             return nil
         }
         
         if searchText.isEmpty {
-            return fetchedForecasts
+            return emittedForecasts
         } else {
             return fetchedForecasts.filter { $0.city.name.contains(searchText) }
         }

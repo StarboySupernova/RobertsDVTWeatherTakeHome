@@ -51,12 +51,12 @@ extension WeatherDisplayViewController: UICollectionViewDelegate, UICollectionVi
         
         let handbook = handbooks[indexPath.item]
         
-        cell.titleLabel.text = handbook.courseTitle
-        cell.subtitleLabel.text = handbook.courseSubtitle
-        cell.descriptionLabel.text = handbook.courseDescription
-        cell.gradient.colors = handbook.courseGradient
-        cell.logo.image = handbook.courseIcon
-        cell.banner.image = handbook.courseBanner
+        cell.titleLabel.text = handbook.title
+        cell.subtitleLabel.text = handbook.subtitle
+        cell.descriptionLabel.text = handbook.description
+        cell.gradient.colors = handbook.gradient
+        cell.logo.image = handbook.icon
+        cell.banner.image = handbook.banner
         
         return cell
     }
@@ -65,7 +65,7 @@ extension WeatherDisplayViewController: UICollectionViewDelegate, UICollectionVi
 
 extension WeatherDisplayViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return courses.count //using handbooks here works but courses will not
+        return headerWeather.count //using handbooks here works but headerWeather will not
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,14 +74,14 @@ extension WeatherDisplayViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherDisplayTableCell", for: indexPath) as! WeatherDisplayTableViewCell
-        let sampleWeather = courses[indexPath.section]
+        let sampleWeather = headerWeather[indexPath.section]
         
-        cell.titleLabel.text = sampleWeather.courseTitle //not showing
+        cell.titleLabel.text = sampleWeather.title //not showing
         //cell.subtitleLabel.text = course.courseSubtitle
-        cell.descriptionLabel.text = sampleWeather.courseDescription //not showing
-        cell.weatherBackground.image = sampleWeather.courseBackground
-        cell.weatherBanner.image = sampleWeather.courseBanner //not showing
-        cell.icon.image = sampleWeather.courseIcon //not showing
+        cell.descriptionLabel.text = sampleWeather.description //not showing
+        cell.weatherBackground.image = sampleWeather.background
+        cell.weatherBanner.image = sampleWeather.banner //not showing
+        cell.icon.image = sampleWeather.icon //not showing
         
         return cell
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Forecast
-struct Forecast: Codable {
+struct Forecast: Codable, Hashable {
     let cod: String
     let message, cnt: Int
     let list: [WeatherList]
@@ -22,7 +22,7 @@ extension Forecast: Identifiable {
 }
 
 // MARK: - City
-struct City: Codable {
+struct City: Codable, Hashable {
     let id: Int
     let name: String
     let coord: Coord
@@ -31,12 +31,12 @@ struct City: Codable {
 }
 
 // MARK: - Coord
-struct Coord: Codable {
+struct Coord: Codable, Hashable {
     let lat, lon: Double
 }
 
 // MARK: - Weather List
-struct WeatherList: Codable, Identifiable {
+struct WeatherList: Codable, Identifiable, Hashable {
     var id = UUID()
     let dt: Int
     let main: Main
@@ -67,12 +67,12 @@ extension WeatherList {
 }
 
 // MARK: - Clouds
-struct Clouds: Codable {
+struct Clouds: Codable, Hashable {
     let all: Int
 }
 
 // MARK: - Main
-struct Main: Codable {
+struct Main: Codable, Hashable {
     let temp, feelsLike, tempMin, tempMax: Double
     let pressure, seaLevel, grndLevel, humidity: Int
     let tempKf: Double
@@ -90,8 +90,34 @@ struct Main: Codable {
     }
 }
 
+/*extension Main: Hashable {
+    func hash(into hasher: inout Hasher) {
+            hasher.combine(temp)
+            hasher.combine(feelsLike)
+            hasher.combine(tempMin)
+            hasher.combine(tempMax)
+            hasher.combine(pressure)
+            hasher.combine(seaLevel)
+            hasher.combine(grndLevel)
+            hasher.combine(humidity)
+            hasher.combine(tempKf)
+        }
+
+        static func ==(lhs: Main, rhs: Main) -> Bool {
+            return lhs.temp == rhs.temp &&
+                lhs.feelsLike == rhs.feelsLike &&
+                lhs.tempMin == rhs.tempMin &&
+                lhs.tempMax == rhs.tempMax &&
+                lhs.pressure == rhs.pressure &&
+                lhs.seaLevel == rhs.seaLevel &&
+                lhs.grndLevel == rhs.grndLevel &&
+                lhs.humidity == rhs.humidity &&
+                lhs.tempKf == rhs.tempKf
+        }
+}*/
+
 // MARK: - Rain
-struct Rain: Codable {
+struct Rain: Codable, Hashable {
     let the3H: Double
 
     enum CodingKeys: String, CodingKey {
@@ -100,7 +126,7 @@ struct Rain: Codable {
 }
 
 // MARK: - Sys
-struct Sys: Codable {
+struct Sys: Codable, Hashable {
     let pod: String
 }
 
@@ -131,11 +157,25 @@ extension Weather : Hashable {
 }
 
 // MARK: - Wind
-struct Wind: Codable {
+struct Wind: Codable, Hashable {
     let speed: Double
     let deg: Int
     let gust: Double
 }
+
+/*extension Wind: Hashable {
+    func hash(into hasher: inout Hasher) {
+            hasher.combine(speed)
+            hasher.combine(deg)
+            hasher.combine(gust)
+        }
+
+        static func ==(lhs: Wind, rhs: Wind) -> Bool {
+            return lhs.speed == rhs.speed &&
+                lhs.deg == rhs.deg &&
+                lhs.gust == rhs.gust
+        }
+}*/
 
 struct CustomForecast {
     var date: Date
