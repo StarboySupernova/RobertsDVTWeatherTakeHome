@@ -64,8 +64,6 @@ extension WeatherList {
     var dateWoTime: Date? {
         return Calendar.current.date(from: Calendar.current.dateComponents([.year,.month,.day], from: date)) ?? nil
     }
-    
-    
 }
 
 // MARK: - Clouds

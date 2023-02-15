@@ -7,22 +7,24 @@
 
 import SwiftUI
 
-/*
+#warning("should come first")
  struct WeatherListView: View {
     @State private var searchText = ""
         
     var searchResults: [Forecast]? {
         let userDefaults = UserDefaults.standard
-        let fetchedForecast: Forecast?
+        let fetchedForecasts: [Forecast]
         do {
-            try fetchedForecast = userDefaults.getObject(forKey: searchText, castTo: Forecast.self)
+            try fetchedForecasts = userDefaults.getObject(forKey: "saved", castTo: [Forecast].self)
         } catch {
             showErrorAlertView("Error", "City not found", handler: {})
-        }
-        if searchText.isEmpty {
             return nil
+        }
+        
+        if searchText.isEmpty {
+            return fetchedForecasts
         } else {
-            return Forecast.cities.filter { $0.location.contains(searchText) }
+            return fetchedForecasts.filter { $0.city.name.contains(searchText) }
         }
     }
     
@@ -35,8 +37,12 @@ import SwiftUI
             // MARK: Weather Widgets
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
-                    ForEach(searchResults) { forecast in
-                        WeatherWidget(forecast: forecast)
+                    if searchResults != nil {
+                        ForEach(searchResults!) { forecast in
+                            WeatherWidget(forecast: forecast)
+                        }
+                    } else {
+                        ProgressView()
                     }
                 }
             }
@@ -45,8 +51,12 @@ import SwiftUI
                     .frame(height: 110)
             }
         }
+        .overlay {
+            // MARK: Navigation Bar
+            NavigationBar(searchText: $searchText)
+        }
         .navigationBarHidden(true)
-        //.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for a city or airport")
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search favourites for a city")
     }
 }
 
@@ -55,4 +65,4 @@ struct WeatherListView_Previews: PreviewProvider {
         WeatherListView()
     }
 }
- */
+ 

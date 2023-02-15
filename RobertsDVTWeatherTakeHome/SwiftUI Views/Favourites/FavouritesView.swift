@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#warning("should come second. Find means to make custom location here")
 struct FavouritesView: View {
     @StateObject var weatherViewModel: WeatherViewModelImplementation = WeatherViewModelImplementation(service: WeatherServiceImplementation())
     @StateObject var locationViewModel: LocationViewModel = LocationViewModel()
@@ -43,10 +44,9 @@ struct FavouritesView: View {
                     ErrorView(error: APIError.unknown){}
             }
         }
-        //putting this on weather success //can't do that because it never appears because this function is never called
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                weatherViewModel.getForecast() //should possibly use DispatchQueue here
+                weatherViewModel.getForecast() 
                 LocationViewModel.customLocation = nil
             }
         }    }

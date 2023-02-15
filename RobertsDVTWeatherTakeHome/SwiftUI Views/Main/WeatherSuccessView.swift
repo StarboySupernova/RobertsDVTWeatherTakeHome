@@ -43,8 +43,15 @@ struct WeatherSuccessView: View {
                         let forecast = weatherViewModel.forecastValue()
                         let city = forecast.city
                         let userDefaults = UserDefaults.standard
+                        var forecasts: [Forecast] = []
+                        var savedForecasts: [Forecast]?
+                        forecasts.append(forecast)
                         do {
-                            try userDefaults.setObject(forecast, forKey: city.name) //we can get forecast.city when retrieving
+                            savedForecasts = try userDefaults.getObject(forKey: "saved", castTo: [Forecast].self)
+                            if savedForecasts != nil {
+                                forecasts += savedForecasts!
+                            }
+                            try userDefaults.setObject(forecasts, forKey: "saved") //we can get forecast.city when retrieving
                             print(city.name)
                         } catch {
                             showErrorAlertView("Error", "Unable to save to internal memory", handler: {})
