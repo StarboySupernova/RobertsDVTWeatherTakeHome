@@ -40,22 +40,7 @@ struct WeatherSuccessView: View {
                 .frame(maxWidth: getRect().width, maxHeight: getRect().height)
                 .overlay(alignment: .topTrailing) {
                     Button {
-                        let forecast = weatherViewModel.forecastValue()
-                        let city = forecast.city
-                        let userDefaults = UserDefaults.standard
-                        var forecasts: Set<Forecast> = []
-                        var savedForecasts: Set<Forecast>?
-                        forecasts.insert(forecast)
-                        do {
-                            savedForecasts = try userDefaults.getObject(forKey: "savedLocations", castTo: Set<Forecast>.self)
-                            if savedForecasts != nil {
-                                forecasts.formUnion(savedForecasts!)
-                            }
-                            try userDefaults.setObject(forecasts, forKey: "savedLocations") //we can get forecast.city when retrieving
-                            print(city.name)
-                        } catch {
-                            showErrorAlertView("Error", "Unable to save to internal memory", handler: {})
-                        }
+                        saveToUserDefaults()
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(.white)
@@ -144,6 +129,32 @@ struct WeatherSuccessView: View {
             }
         }
         
+    }
+    
+    func saveToUserDefaults() {
+        let forecast = weatherViewModel.forecastValue()
+        let city = forecast.city
+        let userDefaults = UserDefaults.standard
+        var forecasts: Set<Forecast> = []
+        var savedForecasts: Set<Forecast>?
+        forecasts.insert(forecast)
+        do {
+            savedForecasts = try userDefaults.getObject(forKey: "savedLocations", castTo: Set<Forecast>.self)
+            if savedForecasts != nil {
+                forecasts.formUnion(savedForecasts!)
+            }
+            try userDefaults.setObject(forecasts, forKey: "savedLocations") //we can get forecast.city when retrieving
+            print(city.name)
+            showSuccessAlertView("Success", "Saved to memory successfully", handler: {})
+        } catch  ObjectSavableError.noValue {
+            do {
+                try userDefaults.setObject(forecasts, forKey: "savedLocations") //we can get forecast.city when retrieving
+            } catch {
+                showErrorAlertView("Error", "Object set failed!", handler: {})
+            }
+        } catch {
+            showErrorAlertView("Error", "Unable to save to internal memory", handler: {})
+        }
     }
 
     @ViewBuilder func iconView(_ weatherMainStringValue: String, label: String = "") -> some View {

@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 #warning("should come second. Find means to make custom location here")
 struct FavouritesView: View {
-    @StateObject var weatherViewModel: WeatherViewModelImplementation = WeatherViewModelImplementation(service: WeatherServiceImplementation())
-    @StateObject var locationViewModel: LocationViewModel = LocationViewModel()
+    @EnvironmentObject var weatherViewModel: WeatherViewModelImplementation
+    @EnvironmentObject var locationViewModel: LocationViewModel
+    var latitude: Double?
+    var longitude: Double?
     
     var body: some View {
         Group {
@@ -46,10 +49,13 @@ struct FavouritesView: View {
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                weatherViewModel.getForecast() 
-                LocationViewModel.customLocation = nil
+                if (latitude != nil) && (longitude != nil) {
+                    LocationViewModel.customLocation = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                    weatherViewModel.getForecastForSavedLocation()
+                }
             }
-        }    }
+        }
+    }
 }
 
 struct FavouritesView_Previews: PreviewProvider {

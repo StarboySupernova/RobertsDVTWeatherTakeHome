@@ -76,6 +76,25 @@ class WeatherViewModelImplementation: ObservableObject, WeatherViewModel {
         //self.cancellables.insert(cancellable)
     }
     
+    func getForecastForSavedLocation() {
+        
+        let cancellable = service
+            .requestForecast(from: .savedForecast)
+            .sink { res in
+                switch res {
+                    case .finished:
+                        self.state = .forecastSuccess(content: self.forecast!)
+                    case .failure(let error):
+                        self.state = .failed(error: error)
+                }
+            } receiveValue: { response in
+                self.forecast = response
+            }
+        
+        self.cancellables = cancellable
+    }
+
+    
     func forecastValue() -> Forecast {
         return self.forecast!
     }

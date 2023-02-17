@@ -47,8 +47,7 @@ struct WeatherView: View {
         }
         //putting this on weather success //can't do that because it never appears because this function is never called
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
-                #warning("why a 0.9 delay here?")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 weatherViewModel.getForecast() //should possibly use DispatchQueue here
                 LocationViewModel.customLocation = nil
             }

@@ -25,6 +25,7 @@ protocol APIBuilder {
 enum OpenWeatherMapAPI {
     case getCurrentWeather
     case getForecast
+    case savedForecast
     //if we have multiple endpoints for our API, we add them here
 }
 
@@ -41,6 +42,13 @@ extension OpenWeatherMapAPI: APIBuilder {
                 return URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=-25.750445&lon=28.237550&exclude=minutely,hourly,alerts&units=metric&APPID=\(self.key)")! //should find a way to inject location here
             case .getForecast:
             return URL(string: "\(Constants.apiForecastBaseUrl)?lat=\(LocationViewModel.shared.lastSeenLocation?.coordinate.latitude ?? LocationViewModel.defaultLocation.latitude)&lon=\(LocationViewModel.shared.lastSeenLocation?.coordinate.longitude ?? LocationViewModel.defaultLocation.longitude)&exclude=minutely,hourly,alerts&units=\(Constants.apiUnits)&appid=\(self.key)")!
+        case .savedForecast:
+            #warning("a simple if-else might suffice here")
+            guard let latitude = LocationViewModel.customLocation?.latitude, let longitude = LocationViewModel.customLocation?.longitude else {
+                showErrorAlertView("Error", "Custom Location not initialized", handler: {})
+                return URL(string: "\(Constants.apiForecastBaseUrl)?lat=\(LocationViewModel.defaultLocation.latitude)&lon=\(LocationViewModel.defaultLocation.longitude)&units=\(Constants.apiUnits)&appid=\(self.key)")!
+            }
+            return URL(string: "\(Constants.apiForecastBaseUrl)?lat=\(latitude)&lon=\(longitude)&units=\(Constants.apiUnits)&appid=\(self.key)")!
         }
     }
     

@@ -10,6 +10,7 @@ import SwiftUI
 #warning("should come first")
  struct WeatherListView: View {
     @State private var searchText = ""
+    @State private var showSheet: Bool = false
         
     var searchResults: [Forecast]? {
         let userDefaults = UserDefaults.standard
@@ -42,6 +43,16 @@ import SwiftUI
                     if searchResults != nil {
                         ForEach(searchResults!) { forecast in
                             WeatherWidget(forecast: forecast)
+                                .onTapGesture {
+                                    LocationViewModel.locationProvider(latitude: forecast.city.coord.lat, longitude: forecast.city.coord.lon)
+                                }
+                                .contentShape(Rectangle())
+                                .sheet(isPresented: $showSheet) {
+                                    showSheet = false
+                                } content: {
+                                    FavouritesView(latitude: forecast.city.coord.lat, longitude: forecast.city.coord.lon)
+                                }
+
                         }
                     } else {
                         ProgressView()

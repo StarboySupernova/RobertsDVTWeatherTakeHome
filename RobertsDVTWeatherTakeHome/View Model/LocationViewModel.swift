@@ -50,14 +50,7 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
             self.currentPlacemark = placemarks?.first
         }
-    }
-    
-    /*func addFavourite(){
-        if (lastSeenLocation != nil) {
-            //favourited.append([lastSeenLocation!: currentPlacemark!])
-            favourited[lastSeenLocation!] = currentPlacemark!
-        }
-    }*/
+    }    
 }
 
 extension LocationViewModel {
