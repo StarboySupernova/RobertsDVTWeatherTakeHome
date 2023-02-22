@@ -9,23 +9,23 @@ import SwiftUI
 
 #warning("should come first")
  struct WeatherListView: View {
+    @EnvironmentObject var weatherViewModel: WeatherViewModelImplementation
+    @EnvironmentObject var locationViewModel: LocationViewModel
     @State private var searchText = ""
     @State private var showSheet: Bool = false
         
     var searchResults: [Forecast]? {
         let userDefaults = UserDefaults.standard
         let fetchedForecasts: Set<Forecast>
-        var emittedForecasts: [Forecast] = []
         do {
             try fetchedForecasts = userDefaults.getObject(forKey: "savedLocations", castTo: Set<Forecast>.self)
-            emittedForecasts = Array(fetchedForecasts)
         } catch {
             showErrorAlertView("Error", "City not found", handler: {})
             return nil
         }
         
         if searchText.isEmpty {
-            return emittedForecasts
+            return Array(fetchedForecasts)
         } else {
             return fetchedForecasts.filter { $0.city.name.contains(searchText) }
         }
@@ -44,6 +44,7 @@ import SwiftUI
                         ForEach(searchResults!) { forecast in
                             WeatherWidget(forecast: forecast)
                                 .onTapGesture {
+                                    showSheet = true
                                     LocationViewModel.locationProvider(latitude: forecast.city.coord.lat, longitude: forecast.city.coord.lon)
                                 }
                                 .contentShape(Rectangle())
@@ -52,7 +53,6 @@ import SwiftUI
                                 } content: {
                                     FavouritesView(latitude: forecast.city.coord.lat, longitude: forecast.city.coord.lon)
                                 }
-
                         }
                     } else {
                         ProgressView()

@@ -39,7 +39,7 @@ struct FavouritesView: View {
                                 }
                             case.failed(error: let error) :
                                 ErrorView(error: error) {
-                                    weatherViewModel.getForecast()
+                                    //weatherViewModel.getForecast()
                                 }
                         }
                     }
@@ -51,7 +51,7 @@ struct FavouritesView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 if (latitude != nil) && (longitude != nil) {
                     LocationViewModel.customLocation = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-                    weatherViewModel.getForecastForSavedLocation()
+                    weatherViewModel.getForecastForSavedLocation(latitude: latitude!, longitude: longitude!)
                 }
             }
         }

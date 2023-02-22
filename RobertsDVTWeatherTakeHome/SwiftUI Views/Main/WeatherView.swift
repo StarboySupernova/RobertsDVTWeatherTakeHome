@@ -9,8 +9,8 @@ import SwiftUI
 import CoreLocation
 
 struct WeatherView: View {
-    @StateObject var weatherViewModel: WeatherViewModelImplementation = WeatherViewModelImplementation(service: WeatherServiceImplementation())
-    @StateObject var locationViewModel: LocationViewModel = LocationViewModel()
+    @EnvironmentObject var weatherViewModel: WeatherViewModelImplementation
+    @EnvironmentObject var locationViewModel: LocationViewModel
     
     var body: some View {
         Group {
@@ -30,14 +30,18 @@ struct WeatherView: View {
                             case .forecastSuccess(content: let forecast):
                                 WeatherSuccessView(forecast: forecast)
                                     .environmentObject(weatherViewModel)
+                                    .environmentObject(locationViewModel)
                             case .loading :
                                 VStack {
                                     ProgressView()
                                     Text("Loading weather data \(coordinate?.latitude ?? 0), \(coordinate?.longitude ?? 0)")
                                 }
+                                .task {
+                                    weatherViewModel.getForecast(lat: coordinate!.latitude, lon: coordinate!.longitude)
+                                }
                             case.failed(error: let error) :
                                 ErrorView(error: error) {
-                                    weatherViewModel.getForecast()
+                                    //weatherViewModel.getForecast()
                                 }
                         }
                     }
@@ -46,10 +50,9 @@ struct WeatherView: View {
             }
         }
         //putting this on weather success //can't do that because it never appears because this function is never called
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                weatherViewModel.getForecast() //should possibly use DispatchQueue here
-                LocationViewModel.customLocation = nil
+        .task {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+                LocationViewModel.locationProvider(latitude: locationViewModel.lastSeenLocation?.coordinate.latitude, longitude: locationViewModel.lastSeenLocation?.coordinate.longitude)
             }
         }
     }

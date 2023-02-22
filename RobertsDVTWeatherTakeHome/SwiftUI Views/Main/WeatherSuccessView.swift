@@ -9,8 +9,8 @@ import SwiftUI
 
 struct WeatherSuccessView: View {
     @EnvironmentObject var weatherViewModel: WeatherViewModelImplementation
-    //@EnvironmentObject var favouritesViewModel: FavouritesViewModel
-    @State private var showingSheet: Bool = false
+    @EnvironmentObject var locationViewModel: LocationViewModel
+    @State private var showFavourites: Bool = false
     var forecast: Forecast
         
     var body: some View {
@@ -39,19 +39,35 @@ struct WeatherSuccessView: View {
                 }
                 .frame(maxWidth: getRect().width, maxHeight: getRect().height)
                 .overlay(alignment: .topTrailing) {
-                    Button {
-                        saveToUserDefaults()
-                    } label: {
-                        Image(systemName: "plus")
-                            .foregroundColor(.white)
-                            .padding(5)
-                            .background {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(.ultraThinMaterial)
-                            }
+                    HStack {
+                        Button {
+                            saveToUserDefaults()
+                        } label: {
+                            Image(systemName: "plus")
+                                .foregroundColor(.white)
+                                .padding(5)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(.ultraThinMaterial)
+                                }
+                        }
+                        .padding()
+                        .contentShape(Rectangle())
+                        
+                        Button {
+                            showFavourites = true
+                        } label: {
+                            Image(systemName: "star")
+                                .foregroundColor(.white)
+                                .padding(5)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(.ultraThinMaterial)
+                                }
+                        }
+                        .padding()
+                        .contentShape(Rectangle())
                     }
-                    .padding()
-
                 }
                 
                 VStack {
@@ -122,9 +138,19 @@ struct WeatherSuccessView: View {
                         Color("cloudy")
                 }
             }
+            .sheet(isPresented: $showFavourites) {
+                showFavourites = false
+            } content: {
+                WeatherListView()
+                    .environmentObject(weatherViewModel)
+                    .environmentObject(locationViewModel)
+            }
+
         } else {
             VStack {
-                ErrorView(error: APIError.unknown){weatherViewModel.getForecast()}
+                ErrorView(error: APIError.unknown){
+                    //weatherViewModel.getForecast()
+                }
                 //PlaceholderImageView()
             }
         }
@@ -147,6 +173,7 @@ struct WeatherSuccessView: View {
             print(city.name)
             showSuccessAlertView("Success", "Saved to memory successfully", handler: {})
         } catch  ObjectSavableError.noValue {
+            //in case there is no already saved forecasts in userdefaults
             do {
                 try userDefaults.setObject(forecasts, forKey: "savedLocations") //we can get forecast.city when retrieving
             } catch {

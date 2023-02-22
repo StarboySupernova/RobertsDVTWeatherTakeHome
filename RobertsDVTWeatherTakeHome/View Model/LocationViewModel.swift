@@ -28,7 +28,6 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-        #warning("locationManager.requestLocation here, and accuracy three kilometers, and requestWhenInUseLocation inside init")
     }
     
     func requestPermission() {
@@ -64,5 +63,5 @@ extension LocationViewModel {
         } else {
             customLocation = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
         }
-    }
+    }    
 }

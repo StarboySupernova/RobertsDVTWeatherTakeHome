@@ -7,11 +7,12 @@
 
 import Foundation
 import Combine
+import CoreLocation
 
 //same as before in WeatherEndPoint, we will use a protocol to keep our classes loosely coupled
 //if we wanted to test, we can now create a mock of this viewmodel with ease
 protocol WeatherViewModel {
-    func getForecast()
+    func getForecast(lat: CLLocationDegrees, lon: CLLocationDegrees)
     func getCurrentWeather()
 }
 
@@ -56,11 +57,11 @@ class WeatherViewModelImplementation: ObservableObject, WeatherViewModel {
     }
     
     
-    func getForecast() {
+    func getForecast(lat: CLLocationDegrees, lon: CLLocationDegrees) {
         //self.state = .loading //this may be the problem
         
         let cancellable = service
-            .requestForecast(from: .getForecast)
+            .requestForecast(from: .getForecast(lat: lat, lon: lon))
             .sink { res in
                 switch res {
                     case .finished:
@@ -76,10 +77,10 @@ class WeatherViewModelImplementation: ObservableObject, WeatherViewModel {
         //self.cancellables.insert(cancellable)
     }
     
-    func getForecastForSavedLocation() {
+    func getForecastForSavedLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         
         let cancellable = service
-            .requestForecast(from: .savedForecast)
+            .requestForecast(from: .savedForecast(lat: latitude, lon: longitude))
             .sink { res in
                 switch res {
                     case .finished:

@@ -9,6 +9,8 @@ import UIKit
 import SwiftUI
 
 class ShowWeatherViewController: UIViewController {
+    var weatherViewModel: WeatherViewModelImplementation = WeatherViewModelImplementation(service: WeatherServiceImplementation())
+    var locationViewModel: LocationViewModel = LocationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +20,10 @@ class ShowWeatherViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         let weatherView = WeatherView().navigationBarHidden(true)
-        let weatherVC = UIHostingController(rootView: weatherView)
+        let weatherVC = UIHostingController(rootView: weatherView
+            .environmentObject(weatherViewModel)
+            .environmentObject(locationViewModel)
+        )
         self.navigationController?.pushViewController(weatherVC, animated: true)
     }
     

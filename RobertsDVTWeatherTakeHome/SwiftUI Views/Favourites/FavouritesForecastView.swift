@@ -10,6 +10,7 @@ import SwiftUI
 import BottomSheet
 
 struct FavouritesForecastView: View {
+    #warning("add locationViewModel for Montreal")
     @EnvironmentObject var weatherViewModel: WeatherViewModelImplementation
     @State var bottomSheetPosition: BottomSheetPosition = .middle
     @State var bottomSheetTranslation: CGFloat = BottomSheetPosition.middle.rawValue
@@ -40,13 +41,13 @@ struct FavouritesForecastView: View {
                     
                     // MARK: Current Weather
                     VStack(spacing: -10 * (1 - bottomSheetTranslationProrated)/*reducing the spacing of the VStack gradually*/) {
-                        Text("Montreal")
+                        Text(forecast.city.name)
                             .font(.largeTitle)
                         
                         VStack {
                             Text(attributedString)
                             
-                            Text("H:24°   L:18°")
+                            Text("H:\(forecast.list.first!.main.tempMax)°   L:\(forecast.list.first!.main.tempMin)°")
                                 .font(.title3.weight(.semibold))
                                 .opacity(1 - bottomSheetTranslationProrated) //render it invisible by the end of the drag gesture
                         }
@@ -115,6 +116,7 @@ struct FavouritesForecastView: View {
     }
     
 }
+
 struct FavouritesForecastView_Previews: PreviewProvider {
     static var previews: some View {
         EmptyView()
