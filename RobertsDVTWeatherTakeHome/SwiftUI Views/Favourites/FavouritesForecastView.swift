@@ -45,9 +45,19 @@ struct FavouritesForecastView: View {
                             .font(.largeTitle)
                         
                         VStack {
-                            Text(attributedString)
+                            Text(String(format: "%.0f", forecast.list.first!.main.temp) + "°")
                             
-                            Text("H:\(forecast.list.first!.main.tempMax)°   L:\(forecast.list.first!.main.tempMin)°")
+                            HStack {
+                                VStack {
+                                    Text("H:")
+                                    Text(String(format: "%.0f", forecast.list.first!.main.tempMax) + "°")
+                                }
+                                
+                                VStack {
+                                    Text("L:")
+                                    Text(String(format: "%.0f", forecast.list.first!.main.tempMin) + "°")
+                                }
+                            }
                                 .font(.title3.weight(.semibold))
                                 .opacity(1 - bottomSheetTranslationProrated) //render it invisible by the end of the drag gesture
                         }
@@ -91,6 +101,7 @@ struct FavouritesForecastView: View {
         }
     }
     
+   /*
     private var attributedString: AttributedString {
         var string = AttributedString("19°" + (hasDragged ? " | " : "\n ") + "Mostly Clear")
         
@@ -110,6 +121,7 @@ struct FavouritesForecastView: View {
         
         return string
     }
+    */
     
     var bottomSheetTranslationProrated: CGFloat {
         (bottomSheetTranslation - BottomSheetPosition.middle.rawValue) / (BottomSheetPosition.top.rawValue - BottomSheetPosition.middle.rawValue)

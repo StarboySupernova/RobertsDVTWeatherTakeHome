@@ -28,7 +28,7 @@ struct NavigationBar: View {
                             .foregroundColor(.secondary)
                         
                         // MARK: Back Button Label
-                        Text("Weather")
+                        Text("Favourites")
                             .font(.title)
                             .foregroundColor(.primary)
                     }
@@ -37,10 +37,6 @@ struct NavigationBar: View {
                 
                 Spacer()
                 
-                // MARK: More Button
-                Image(systemName: "ellipsis.circle")
-                    .font(.system(size: 28))
-                    .frame(width: 44, height: 44, alignment: .trailing)
             }
             .frame(height: 52)
             

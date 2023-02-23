@@ -22,12 +22,20 @@ struct WeatherWidget: View {
                 HStack(alignment: .bottom) {
                     VStack(alignment: .leading, spacing: 8) {
                         // MARK: Forecast Temperature
-                        Text("\(weatherList.first!.temp)°")
+                        Text(String(format: "%.0f", weatherList.first!.temp) + "°")
                             .font(.system(size: 64))
                         
                         VStack(alignment: .leading, spacing: 2) {
                             // MARK: Forecast Temperature Range
-                            Text("H:\(weatherList.first!.temp)°  L:\(weatherList.first!.temp)°")
+                                HStack {
+                                    Text("H:")
+                                    Text(String(format: "%.0f", forecast.list.first!.main.tempMax) + "°")
+                                }
+                                
+                                HStack {
+                                    Text("L:")
+                                    Text(String(format: "%.0f", forecast.list.first!.main.tempMin) + "°")
+                                }
                                 .font(.footnote)
                                 .foregroundColor(.secondary)
                             

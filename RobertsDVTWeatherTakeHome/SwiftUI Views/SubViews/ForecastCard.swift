@@ -58,7 +58,7 @@ struct ForecastCard: View {
                 .frame(height: 42)
                 
                 // MARK: Forecast Temperature
-                Text("\(self.hourly != nil ? hourly!.temp : daily!.maxTemp)°")
+                Text(self.hourly != nil ? String(format: "%.0f", hourly!.temp) : String(format: "%.0f", daily!.maxTemp) + "°")
                     .font(.title3)
             }
             .padding(.horizontal, 8)

@@ -37,7 +37,9 @@ struct WeatherView: View {
                                     Text("Loading weather data \(coordinate?.latitude ?? 0), \(coordinate?.longitude ?? 0)")
                                 }
                                 .task {
-                                    weatherViewModel.getForecast(lat: coordinate!.latitude, lon: coordinate!.longitude)
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                                        weatherViewModel.getForecast(lat: coordinate!.latitude, lon: coordinate!.longitude)
+                                    }
                                 }
                             case.failed(error: let error) :
                                 ErrorView(error: error) {
@@ -64,10 +66,6 @@ struct WeatherView: View {
 
 struct RequestLocationView: View {
     @EnvironmentObject var locationViewModel: LocationViewModel
-    
-    //@State private var progress: CGFloat = 0
-    
-    //@State private var showingAnimation: Bool = true
     
     let backgroundGradient: Gradient = Gradient(colors: [.black.opacity(0.1), .gray.opacity(0.1)])
     let backgroundGradient2: Gradient = Gradient(colors: [.mint.opacity(0.1), .orange.opacity(0.1)])
