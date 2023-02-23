@@ -19,43 +19,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOh-5Q-skT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="432" height="896"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background01" translatesAutoresizingMaskIntoConstraints="NO" id="hy2-9u-ekA">
-                                        <rect key="frame" x="0.0" y="124" width="414" height="464.5"/>
+                                        <rect key="frame" x="0.0" y="-140" width="432" height="464.5"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7HT-K8-5fV" customClass="CustomView" customModule="RobertsDVTWeatherTakeHome" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="20" width="382" height="480"/>
+                                        <rect key="frame" x="16" y="20" width="400" height="480"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0f-4N-fAM" customClass="CustomBlurView" customModule="RobertsDVTWeatherTakeHome" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="480"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="480"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RVW-6O-jeO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="480"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="480"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background 5" translatesAutoresizingMaskIntoConstraints="NO" id="xdX-VT-LgD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="350"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background 4" translatesAutoresizingMaskIntoConstraints="NO" id="xdX-VT-LgD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="350"/>
                                                         </imageView>
                                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXn-ap-6jk">
-                                                            <rect key="frame" x="0.0" y="350" width="382" height="130"/>
+                                                            <rect key="frame" x="0.0" y="350" width="400" height="130"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3aT-Zy-280">
-                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="130"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="400" height="130"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4C-5g-Zzu">
-                                                                        <rect key="frame" x="20" y="8" width="342" height="34"/>
+                                                                        <rect key="frame" x="20" y="8" width="360" height="34"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather at your fingertips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIn-vp-gsW">
-                                                                        <rect key="frame" x="20" y="50" width="342" height="16"/>
+                                                                        <rect key="frame" x="20" y="50" width="360" height="16"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In your location and more!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLG-g8-e0y">
-                                                                        <rect key="frame" x="20" y="74" width="342" height="16"/>
+                                                                        <rect key="frame" x="20" y="74" width="360" height="16"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -137,7 +137,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MpS-aI-d5L">
-                                        <rect key="frame" x="16" y="572" width="382" height="257"/>
+                                        <rect key="frame" x="16" y="572" width="400" height="257"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="400" id="4XW-oO-Txn"/>
@@ -301,7 +301,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="350" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wV-lV-B1e">
-                                        <rect key="frame" x="16" y="901" width="382" height="400"/>
+                                        <rect key="frame" x="16" y="901" width="400" height="400"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="LfI-Yl-ufX"/>
@@ -309,26 +309,26 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherDisplayTableCell" rowHeight="350" id="y3x-wW-K5R" customClass="WeatherDisplayTableViewCell" customModule="RobertsDVTWeatherTakeHome" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="382" height="350"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="400" height="350"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y3x-wW-K5R" id="HDq-UB-D6L">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="350"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="350"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vW1-lk-3Vn">
-                                                            <rect key="frame" x="20" y="20" width="342" height="200"/>
+                                                            <rect key="frame" x="20" y="20" width="360" height="200"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="200" id="7F8-lH-KOm"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a3-HB-vDq">
-                                                            <rect key="frame" x="20" y="294" width="342" height="16"/>
+                                                            <rect key="frame" x="20" y="294" width="360" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxU-N0-sxe">
-                                                            <rect key="frame" x="20" y="252.5" width="342" height="33.5"/>
+                                                            <rect key="frame" x="20" y="252.5" width="360" height="33.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -358,7 +358,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background 3" translatesAutoresizingMaskIntoConstraints="NO" id="3bN-ej-4YG">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="350"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="350"/>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
@@ -535,7 +535,7 @@
     </designables>
     <resources>
         <image name="Background 3" width="350" height="350"/>
-        <image name="Background 5" width="350" height="350"/>
+        <image name="Background 4" width="350" height="350"/>
         <image name="Background01" width="330" height="464.5"/>
         <image name="Logo Flutter" width="26" height="26"/>
         <image name="Logo SwiftUI" width="32" height="32"/>

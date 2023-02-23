@@ -30,7 +30,7 @@ struct NavigationBar: View {
                         // MARK: Back Button Label
                         Text("Favourites")
                             .font(.title)
-                            .foregroundColor(.primary)
+                            .foregroundColor(.white)
                     }
                     .frame(height: 44)
                 }
@@ -46,7 +46,7 @@ struct NavigationBar: View {
                 
                 TextField("Search for a city or airport", text: $searchText)
             }
-            .foregroundColor(.secondary)
+            .foregroundColor(.white)
             .padding(.horizontal, 6)
             .padding(.vertical, 7)
             .frame(height: 36, alignment: .leading)
